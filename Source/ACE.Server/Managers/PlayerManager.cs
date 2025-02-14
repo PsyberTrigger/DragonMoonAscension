@@ -51,6 +51,7 @@ namespace ACE.Server.Managers
         public static void Initialize()
         {
             var results = DatabaseManager.Shard.BaseDatabase.GetAllPlayerBiotasInParallel();
+            Console.WriteLine($"TotalPlayerBiotas: {results.Count}"); // Just for testing
 
             Parallel.ForEach(results, ConfigManager.Config.Server.Threading.DatabaseParallelOptions, result =>
             {

@@ -612,9 +612,9 @@ namespace ACE.Entity.Enum.Properties
         // Number of times a character has enlightened
         [SendOnLogin][AssessmentProperty]
         Enlightenment                            = 390,
-        [ServerOnly]
+        [SendOnLogin]
         PlayerQstBonus                           = 391,
-        [ServerOnly]
+        [SendOnLogin]
         PlayerKillBonus                          = 392,
 
         /* Custom Properties */
