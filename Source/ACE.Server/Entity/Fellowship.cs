@@ -654,7 +654,7 @@ namespace ACE.Server.Entity
             return 1.0;
         }
 
-        public const int MaxFellowDistance = (int)PropertyManager.GetLong("fellowship_max_share_dist").Item;
+        public static int MaxFellowDistance = (int)PropertyManager.GetLong("fellowship_max_share_dist").Item;
 
         /// <summary>
         /// Returns the amount to scale the XP for a fellow
