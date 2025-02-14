@@ -10,6 +10,7 @@ using log4net;
 using log4net.Config;
 
 using ACE.Common;
+using ACE.Common.Extensions;
 using ACE.Database;
 using ACE.DatLoader;
 using ACE.Server.Command;
@@ -28,7 +29,7 @@ namespace ACE.Server
         /// https://docs.microsoft.com/en-us/windows/desktop/api/timeapi/nf-timeapi-timebeginperiod
         /// Important note: This function affects a global Windows setting. Windows uses the lowest value (that is, highest resolution) requested by any process.
         /// </summary>
-        [DllImport("winmm.dll", EntryPoint="timeBeginPeriod")]
+        [DllImport("winmm.dll", EntryPoint = "timeBeginPeriod")]
         public static extern uint MM_BeginPeriod(uint uMilliseconds);
 
         /// <summary>
@@ -1544,7 +1545,7 @@ namespace ACE.Server
                         File.Copy(log4netConfigExample, log4netConfig);
                     }
                     else
-                    {                        
+                    {
                         if (!File.Exists(log4netConfigContainer))
                         {
                             Console.WriteLine("log4net Configuration file is missing, ACEmulator is running in a container,  cloning from docker file.");
