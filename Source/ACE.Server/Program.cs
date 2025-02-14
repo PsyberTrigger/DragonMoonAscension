@@ -1725,13 +1725,13 @@ namespace ACE.Server
             }
 
             log.Info("[STARTUP] Starting DatabaseManager...");
-            DatabaseManager.Start();
+                DatabaseManager.Start();
 
             log.Info("[STARTUP] Starting PropertyManager...");
-            PropertyManager.Initialize();
+                PropertyManager.Initialize();
 
             log.Info("[STARTUP] Initializing GuidManager...");
-            GuidManager.Initialize();
+                GuidManager.Initialize();
 
             if (!string.IsNullOrEmpty(ConfigManager.Config.Chat.DiscordToken))
             {
@@ -1776,22 +1776,22 @@ namespace ACE.Server
                 log.Info("[STARTUP] Precaching World Database Disabled...");
 
             log.Info("[STARTUP] Initializing PlayerManager...");
-            PlayerManager.Initialize();
+                PlayerManager.Initialize();
 
             log.Info("[STARTUP] Initializing HouseManager...");
-            HouseManager.Initialize();
+                HouseManager.Initialize();
 
             log.Info("[STARTUP] Initializing InboundMessageManager...");
-            InboundMessageManager.Initialize();
+                InboundMessageManager.Initialize();
 
             log.Info("[STARTUP] Initializing SocketManager...");
             SocketManager.Initialize();
 
             log.Info("[STARTUP] Initializing WorldManager...");
-            WorldManager.Initialize();
+                WorldManager.Initialize();
 
             log.Info("[STARTUP] Initializing EventManager...");
-            EventManager.Initialize();
+                EventManager.Initialize();
 
             // Free up memory before the server goes online. This can free up 6 GB+ on larger servers.
             log.Info("[STARTUP] Forcing .net garbage collection...");

@@ -65,11 +65,23 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<int> TierRatingMod12 = new ChanceTable<int>()
         {
-            ( 20, 0.75f ),
-            ( 21, 0.225f ),
-            ( 22, 0.025f ),
+            ( 20, 0.60f ),
+            ( 22, 0.15f ),
+            ( 24, 0.125f ),
+            ( 26, 0.075f ),
+            ( 28, 0.0375f ),
+            ( 30, 0.0125f )
         };
 
+        private static ChanceTable<int> TierRatingMod13 = new ChanceTable<int>()
+        {
+            ( 32, 0.80f ),
+            ( 34, 0.075f ),
+            ( 36, 0.045f ),
+            ( 38, 0.040f ),
+            ( 40, 0.0375f ),
+            ( 45, 0.0025f )
+        };
 
         public static int Roll(WorldObject wo, TreasureDeath profile, TreasureRoll roll)
         {
@@ -100,6 +112,9 @@ namespace ACE.Server.Factories.Tables
                         break;
                     case 12:
                         ratingTierMod = TierRatingMod12;
+                        break;
+                    case 13:
+                        ratingTierMod = TierRatingMod13;
                         break;
                     default:
                         break;

@@ -7,7 +7,7 @@ using ACE.Entity.Enum.Properties;
 using ACE.Server.WorldObjects;
 using ACE.Server.Managers;
 using ACE.Server.Network.GameMessages.Messages;
-using ACE.DatLoader.FileTypes;
+using System.Net.Http.Headers;
 
 namespace ACE.Server.Entity
 {
@@ -70,8 +70,22 @@ namespace ACE.Server.Entity
                 return false;
             }
 
-            string lumCheck = VerifyAvailableLuminance(player);
+            if (player.Enlightenment >= 5)
+            {
+                player.Session.Network.EnqueueSend(new GameMessageSystemChat($"You have already reached the maximum ascension level!", ChatMessageType.Broadcast));
+                return false;
+            }
 
+            int titlesCheck = VerifyTitlesRequirement(player);
+            if (titlesCheck != 1)
+            {
+                player.Session.Network.EnqueueSend(new GameMessageSystemChat($"You do not hold enough titles telling of your deeds. You are not yet worthy of the next step on your path of ascension. Return when you have garnered more esteem.", ChatMessageType.Broadcast));
+                player.SendMessage($"You have {player.NumCharacterTitles} of {titlesCheck} required titles for your next ascension level",ChatMessageType.Broadcast);
+
+                return false;
+            }
+
+            string lumCheck = VerifyAvailableLuminance(player);
             if (lumCheck != "true")
             {
                 player.Session.Network.EnqueueSend(new GameMessageSystemChat($"You must have {lumCheck} Luminance available for ascension.", ChatMessageType.Broadcast));
@@ -93,12 +107,6 @@ namespace ACE.Server.Entity
             if (player.GetFreeInventorySlots() < 25)
             {
                 player.Session.Network.EnqueueSend(new GameMessageSystemChat($"You must have at least 25 free inventory slots in your main pack for ascension.", ChatMessageType.Broadcast));
-                return false;
-            }
-
-            if (player.Enlightenment >= 5)
-            {
-                player.Session.Network.EnqueueSend(new GameMessageSystemChat($"You have already reached the maximum ascension level!", ChatMessageType.Broadcast));
                 return false;
             }
             return true;
@@ -136,6 +144,60 @@ namespace ACE.Server.Entity
             }
 
             return "true";
+        }
+
+        public static int VerifyTitlesRequirement(Player player)
+        {
+            switch (player.Enlightenment)
+            {
+                case 0:
+                    if (player.NumCharacterTitles < 75)
+                    {
+                        return 75;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                case 1:
+                    if (player.NumCharacterTitles < 115)
+                    {
+                        return 115;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                case 2:
+                    if (player.NumCharacterTitles < 155)
+                    {
+                        return 155;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                case 3:
+                    if (player.NumCharacterTitles < 195)
+                    {
+                        return 195;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                case 4:
+                    if (player.NumCharacterTitles < 235)
+                    {
+                        return 235;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                default:
+                    return 75;
+            }
         }
 
         public static bool VerifySocietyMaster(Player player)
@@ -384,18 +446,11 @@ namespace ACE.Server.Entity
             player.Enlightenment += 1;
             player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.Enlightenment, player.Enlightenment));
 
-            player.LumAugAllSkills += 10;
-            player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.LumAugAllSkills, player.LumAugAllSkills));
-
-            player.OverpowerResist += 5;
-            player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.OverpowerResist, (int)player.OverpowerResist));
-
             //player.SendMessage("You have become enlightened and view the world with new eyes.", ChatMessageType.Broadcast);
             player.SendMessage("You have ascended and view the world with new eyes.", ChatMessageType.Broadcast);
             player.SendMessage("Your available skill credits have been adjusted.", ChatMessageType.Broadcast);
-            player.SendMessage("You have risen to a higher tier of ascension!", ChatMessageType.Broadcast);
 
-            var lvl = "";
+            string lvl = "";
 
             // add title
             switch (player.Enlightenment)
@@ -403,52 +458,114 @@ namespace ACE.Server.Entity
                 case 1:
                     player.AddTitle(CharacterTitle.Awakened);
                     lvl = "1st";
+                    player.LumAugAllSkills += 10;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.LumAugAllSkills, player.LumAugAllSkills));
+                    player.OverpowerResist = 5;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.OverpowerResist, (int)player.OverpowerResist));
                     player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue += 4;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxHealth, player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue += 8;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxStamina, player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue += 8;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxMana, player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue));
                     player.AugmentationIncreasedSpellDuration += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationIncreasedSpellDuration, player.AugmentationIncreasedSpellDuration));
                     player.AugmentationBonusXp += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationBonusXp, player.AugmentationBonusXp));
                     player.MaximumLuminance = 500000000;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt64(player, PropertyInt64.MaximumLuminance, (long)player.MaximumLuminance));
                     break;
                 case 2:
                     player.AddTitle(CharacterTitle.Enlightened);
                     lvl = "2nd";
+                    player.LumAugAllSkills += 10;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.LumAugAllSkills, player.LumAugAllSkills));
+                    player.OverpowerResist += 5;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.OverpowerResist, (int)player.OverpowerResist));
                     player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue += 8;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxHealth, player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue += 16;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxStamina, player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue += 16;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxMana, player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue));
                     player.AugmentationIncreasedSpellDuration += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationIncreasedSpellDuration, player.AugmentationIncreasedSpellDuration));
                     player.AugmentationBonusXp += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationBonusXp, player.AugmentationBonusXp));
                     player.MaximumLuminance = 800000000;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt64(player, PropertyInt64.MaximumLuminance, (long)player.MaximumLuminance));
                     break;
                 case 3:
                     player.AddTitle(CharacterTitle.Illuminated);
                     lvl = "3rd";
+                    player.LumAugAllSkills += 10;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.LumAugAllSkills, player.LumAugAllSkills));
+                    player.OverpowerResist += 5;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.OverpowerResist, (int)player.OverpowerResist));
                     player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue += 12;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxHealth, player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue += 24;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxStamina, player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue += 24;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxMana, player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue));
                     player.AugmentationIncreasedSpellDuration += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationIncreasedSpellDuration, player.AugmentationIncreasedSpellDuration));
                     player.AugmentationBonusXp += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationBonusXp, player.AugmentationBonusXp));
                     player.MaximumLuminance = 1200000000;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt64(player, PropertyInt64.MaximumLuminance, (long)player.MaximumLuminance));
                     break;
                 case 4:
                     player.AddTitle(CharacterTitle.Transcended);
                     lvl = "4th";
+                    player.LumAugAllSkills += 10;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.LumAugAllSkills, player.LumAugAllSkills));
+                    player.OverpowerResist += 5;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.OverpowerResist, (int)player.OverpowerResist));
                     player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue += 16;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxHealth, player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue += 32;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxStamina, player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue += 32;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxMana, player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue));
                     player.AugmentationIncreasedSpellDuration += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationIncreasedSpellDuration, player.AugmentationIncreasedSpellDuration));
                     player.AugmentationBonusXp += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationBonusXp, player.AugmentationBonusXp));
                     player.MaximumLuminance = 1500000000;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt64(player, PropertyInt64.MaximumLuminance, (long)player.MaximumLuminance));
                     break;
                 case 5:
                     player.AddTitle(CharacterTitle.CosmicConscious);
                     lvl = "5th";
+                    player.LumAugAllSkills += 10;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.LumAugAllSkills, player.LumAugAllSkills));
+                    player.OverpowerResist += 5;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.OverpowerResist, (int)player.OverpowerResist));
                     player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue += 20;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxHealth, player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue += 40;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxStamina, player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue));
                     player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue += 40;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxMana, player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue));
                     player.AugmentationIncreasedSpellDuration += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationIncreasedSpellDuration, player.AugmentationIncreasedSpellDuration));
                     player.AugmentationBonusXp += 1;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.AugmentationBonusXp, player.AugmentationBonusXp));
                     player.MaximumLuminance = 2000000000;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt64(player, PropertyInt64.MaximumLuminance, (long)player.MaximumLuminance));
+                    break;
+                default:
+                    player.AddTitle(CharacterTitle.CosmicConscious);
+                    lvl = $"{player.Enlightenment}th";
+                    player.LumAugAllSkills += 5;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdatePropertyInt(player, PropertyInt.LumAugAllSkills, player.LumAugAllSkills));
+                    player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue += 5;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxHealth, player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue));
+                    player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue += 10;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxStamina, player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue));
+                    player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue += 10;
+                    player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.MaxMana, player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue));
                     break;
             }
 
@@ -456,9 +573,12 @@ namespace ACE.Server.Entity
 
             //var msg = $"{player.Name} has achieved the {lvl} level of Enlightenment!";
             var msg = $"{player.Name} has achieved the {lvl} level of Ascension!";
-            PlayerManager.BroadcastToAll(new GameMessageSystemChat(msg, ChatMessageType.WorldBroadcast));
-            PlayerManager.LogBroadcastChat(Channel.AllBroadcast, null, msg);
-
+            if (player.Account.AccessLevel < 3)
+            {
+                PlayerManager.BroadcastToAll(new GameMessageSystemChat(msg, ChatMessageType.WorldBroadcast));
+                PlayerManager.LogBroadcastChat(Channel.AllBroadcast, null, msg);
+            }
+            player.SendMessage($"You have risen to the {lvl} tier of ascension!", ChatMessageType.Broadcast);
             // +2 vitality
             // handled automatically via PropertyInt.Enlightenment * 2
 

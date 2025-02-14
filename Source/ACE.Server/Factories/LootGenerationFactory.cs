@@ -795,6 +795,7 @@ namespace ACE.Server.Factories
             (800, 5500),    // T10
             (1200, 6000),    // T11
             (1200, 6500),    // T12
+            (4000, 10000),    // T13
         };
 
         private static int Roll_ItemValue(WorldObject wo, int tier)
@@ -868,7 +869,7 @@ namespace ACE.Server.Factories
             var materialMod = MaterialTable.GetValueMod(wo.MaterialType);
             var gemValue = GemMaterialChance.GemValue(wo.GemType);
 
-            var tierMod = ItemValue_TierMod[Math.Clamp(tier, 1, 12) - 1];
+            var tierMod = ItemValue_TierMod[Math.Clamp(tier, 1, 13) - 1];
 
             var newValue = (int)wo.Value * valueFactor + materialMod * tierMod + gemValue;
 
@@ -921,6 +922,7 @@ namespace ACE.Server.Factories
             4000,   // T10
             4500,   // T11
             5000,   // T12
+            6000,   // T13
         };
 
         /// <summary>
@@ -1236,6 +1238,7 @@ namespace ACE.Server.Factories
             (1500, 15000), // T10
             (2000, 20000), // T11
             (2500, 25000), // T12
+            (10000, 25000), // T13
         };
 
         private static void MutateCoins(WorldObject wo, TreasureDeath profile)
@@ -1299,9 +1302,13 @@ namespace ACE.Server.Factories
                         wieldLevelReq = 180;
                     break;
                 case 9:
+                    wieldLevelReq = 250;
+                    break;
                 case 10:
+                    wieldLevelReq = 500;
+                    break;
                 case 11:
-                    wieldLevelReq = 200;
+                    wieldLevelReq = 750;
                     break;
                 case 12:
                     wieldLevelReq = 1000;

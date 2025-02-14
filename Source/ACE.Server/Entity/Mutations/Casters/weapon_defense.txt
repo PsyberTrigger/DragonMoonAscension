@@ -89,19 +89,96 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
 
 Caster Mutation #9 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
     - Chance: 85%:
-        WeaponDefense += 0.02
+        WeaponDefense += 0.01
+        CriticalFrequency = 0.25
 
     - Chance: 6%:
-        WeaponDefense += 0.03
+        WeaponDefense += 0.02
+        CriticalFrequency = 0.3
 
     - Chance: 4%:
-        WeaponDefense += 0.04
+        WeaponDefense += 0.03
+        CriticalFrequency = 0.34
 
     - Chance: 3%:
-        WeaponDefense += 0.05
+        WeaponDefense += 0.04
+        CriticalFrequency = 0.38
 
     - Chance: 2%:
+        WeaponDefense += 0.05
+        CriticalFrequency = 0.42
+        
+Caster Mutation #10 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 85%:
+        WeaponDefense += 0.04
+        CriticalFrequency = 0.25
+
+    - Chance: 6%:
+        WeaponDefense += 0.05
+        CriticalFrequency = 0.3
+
+    - Chance: 4%:
         WeaponDefense += 0.06
+        CriticalFrequency = 0.34
+
+    - Chance: 3%:
+        WeaponDefense += 0.07
+        CriticalFrequency = 0.38
+
+    - Chance: 2%:
+        WeaponDefense += 0.08
+        CriticalFrequency = 0.42
+
+Caster Mutation #11 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 85%:
+        WeaponDefense += 0.06
+        CriticalFrequency = 0.25
+
+    - Chance: 6%:
+        WeaponDefense += 0.07
+        CriticalFrequency = 0.3
+
+    - Chance: 4%:
+        WeaponDefense += 0.08
+        CriticalFrequency = 0.36
+
+    - Chance: 3%:
+        WeaponDefense += 0.09
+        CriticalFrequency = 0.38
+
+    - Chance: 2%:
+        WeaponDefense += 0.10
+        CriticalFrequency = 0.42
+
+Caster Mutation #12 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 85%:
+        WeaponDefense += 0.11
+        CriticalFrequency = 0.36
+
+    - Chance: 6%:
+        WeaponDefense += 0.12
+        CriticalFrequency = 0.38
+
+    - Chance: 4%:
+        WeaponDefense += 0.13
+        CriticalFrequency = 0.42
+
+    - Chance: 3%:
+        WeaponDefense += 0.14
+        CriticalFrequency = 0.44
+
+    - Chance: 2%:
+        WeaponDefense += 0.15
+        CriticalFrequency = 0.45

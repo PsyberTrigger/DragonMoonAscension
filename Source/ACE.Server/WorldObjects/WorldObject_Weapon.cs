@@ -699,6 +699,7 @@ namespace ACE.Server.WorldObjects
 
                 case ImbuedSkillType.Missile:
                 case ImbuedSkillType.Magic:
+                case ImbuedSkillType.Void:
 
                     baseMod = baseSkill / 60.0f;
                     break;
@@ -712,7 +713,9 @@ namespace ACE.Server.WorldObjects
         }
 
         // elemental rending cap, equivalent to level 6 vuln
-        public static float MaxRendingMod = 2.5f;
+        //public static float MaxRendingMod = 2.5f;
+        public static float MaxRendingMod = 2.95f;//3.1 would be equivalent to a level 8 vuln. So increase to 2.85 for a rends as level 7 vuln.
+        public static float MaxRendVoidMod = 1.1f;//between a level 1 and 2 vuln
 
         public static float GetRendingMod(CreatureSkill skill)
         {
@@ -720,19 +723,32 @@ namespace ACE.Server.WorldObjects
 
             var rendingMod = 1.0f;
 
-            switch (GetImbuedSkillType(skill))
+            var imbueSkillType = GetImbuedSkillType(skill);
+
+            switch (imbueSkillType)
             {
                 case ImbuedSkillType.Melee:
-                    rendingMod = baseSkill / 160.0f;
+                    rendingMod = baseSkill / 155.0f;//160
                     break;
 
                 case ImbuedSkillType.Missile:
                 case ImbuedSkillType.Magic:
-                    rendingMod = baseSkill / 144.0f;
+                    rendingMod = baseSkill / 140.0f;//144
+                    break;
+
+                case ImbuedSkillType.Void:
+                    rendingMod = baseSkill / 140.0f;//144
                     break;
             }
 
-            rendingMod = Math.Clamp(rendingMod, 1.0f, MaxRendingMod);
+            if (imbueSkillType != ImbuedSkillType.Void)
+            {
+                rendingMod = Math.Clamp(rendingMod, 1.0f, MaxRendingMod);
+            }
+            else
+            {
+                rendingMod = Math.Clamp(rendingMod, 1.0f, MaxRendVoidMod);
+            }
 
             //Console.WriteLine($"RendingMod: {rendingMod}");
 
@@ -814,12 +830,13 @@ namespace ACE.Server.WorldObjects
             switch (GetImbuedSkillType(skill))
             {
                 case ImbuedSkillType.Melee:
-                    return (int)Math.Min(skill.Base, 400);
+                    return (int)Math.Min(skill.Base, 460);
 
                 case ImbuedSkillType.Missile:
                 case ImbuedSkillType.Magic:
+                case ImbuedSkillType.Void:
                 default:
-                    return (int)Math.Min(skill.Base, 360);
+                    return (int)Math.Min(skill.Base, 420);
             }
         }
 
@@ -828,7 +845,8 @@ namespace ACE.Server.WorldObjects
             Undef,
             Melee,
             Missile,
-            Magic
+            Magic,
+            Void
         }
 
         public static ImbuedSkillType GetImbuedSkillType(CreatureSkill skill)
@@ -864,10 +882,13 @@ namespace ACE.Server.WorldObjects
 
 
                 case Skill.WarMagic:
-                case Skill.VoidMagic:
                 case Skill.LifeMagic:   // Martyr's Hecatomb
 
                     return ImbuedSkillType.Magic;
+
+                case Skill.VoidMagic:
+
+                    return ImbuedSkillType.Void;
 
                 default:
                     log.DebugFormat("WorldObject_Weapon.GetImbuedSkillType({0}): unexpected skill", skill?.Skill);

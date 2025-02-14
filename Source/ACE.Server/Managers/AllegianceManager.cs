@@ -305,19 +305,19 @@ namespace ACE.Server.Managers
                     var patronVassalDifference = vassal.Level - patron.Level;
                     if (patronVassalDifference > 800)
                     {
-                        passupAmount /= 16;
+                        passupAmount /= 128;
                     }
                     else if (patronVassalDifference > 600)
                     {
-                            passupAmount /= 8;
+                            passupAmount /= 64;
                     }
                     else if (patronVassalDifference > 400)
                     {
-                        passupAmount /= 4;
+                        passupAmount /= 32;
                     }
                     else if (patronVassalDifference > 200)
                     {
-                        passupAmount /= 2;
+                        passupAmount /= 16;
                     }
                 }
                 vassal.AllegianceXPGenerated += generatedAmount;

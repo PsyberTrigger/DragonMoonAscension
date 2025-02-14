@@ -131,6 +131,157 @@ namespace ACE.Database
         }
 
         /// <summary>
+        /// Get the Access Limit Per Account.
+        /// Result will be 0 or a uint value based on the account
+        /// </summary>
+        public uint GetALPAccount(string accountName)
+        {
+            using (var context = new AuthDbContext())
+            {
+                Account result = null;
+                result = context.Account
+                    .AsNoTracking()
+                    .FirstOrDefault(r => r.AccountName == accountName);
+                return (result != null) ? result.AccessLimitExcess : 0;
+            }
+        }
+
+        /// <summary>
+        /// Get the Access Limit Per Account.
+        /// Result will be 0 or a uint value based on the account
+        /// </summary>
+        public uint GetALPAccount(Account account)
+        {
+            using (var context = new AuthDbContext())
+            {
+                Account result = null;
+                result = context.Account
+                    .AsNoTracking()
+                    .FirstOrDefault(r => r.AccountName == account.AccountName);
+                return (result != null) ? result.AccessLimitExcess : 0;
+            }
+        }
+
+        /// <summary>
+        /// Get the Access Limit Per Account.
+        /// Result will be 0 or a uint value based on the account
+        /// </summary>
+        public uint GetALPAccount(uint accountId)
+        {
+            using (var context = new AuthDbContext())
+            {
+                Account result = null;
+                result = context.Account
+                    .AsNoTracking()
+                    .FirstOrDefault(r => r.AccountId == accountId);
+                return (result != null) ? result.AccessLimitExcess : 0;
+            }
+        }
+
+        /// <summary>
+        /// Get the Access Limit Per IP.
+        /// Result will be false if the endPoint was not found.
+        /// </summary>
+        public byte GetALPIP(IPEndPoint endPoint)
+        {
+            using (var context = new AuthDbContext())
+            {
+                var result = context.AccessLimits
+                    .AsNoTracking()
+                    .FirstOrDefault(r => r.IP == endPoint.Address.GetAddressBytes());
+
+                return (result != null) ? result.AccessLimit : (byte)0;
+            }
+        }
+
+        /// <summary>
+        /// Get the Access Limit Per IP.
+        /// Result will be false if the accountId was not found.
+        /// </summary>
+        public byte GetALPIP(uint accountId)
+        {
+            using (var context = new AuthDbContext())
+            {
+                AccessLimits result = null;
+                try
+                {
+                    result = context.AccessLimits
+                        .AsNoTracking()
+                        .FirstOrDefault(r => r.AccountId == accountId);
+                }
+                catch
+                {
+                    return (byte)0; // redundant
+                }
+
+                return (result != null) ? result.AccessLimit : (byte)0;
+            }
+        }
+
+        /// <summary>
+        /// Set the Access Limit Per Account.
+        /// Result will be 0 or greater uint value
+        /// </summary>
+        public bool SetALPAccount(string accountName, uint limit = 0)
+        {
+            using (var context = new AuthDbContext())
+            {
+                try
+                {
+                    var listing = context.Account
+                        .First(r => r.AccountName == accountName);
+
+                    // Update the existing
+                    listing.AccessLimitExcess = limit;
+                }
+                catch
+                {
+                    return false;
+                }
+                return context.SaveChanges() > 0;
+            }
+        }
+
+        /// <summary>
+        /// Set the Access Limit Per IP.
+        /// Result will be false if the endPoint was not found.
+        /// </summary>
+        public bool SetALPIP(IPEndPoint endPoint, string accountName = "", byte Limit = 3)
+        {
+            using (var context = new AuthDbContext())
+            {
+
+                // Check if the account/IP is already listed
+                try
+                {
+                    var listing = context.AccessLimits
+                        .First(r => r.IP == endPoint.Address.GetAddressBytes());
+
+                    // Update the existing
+                    listing.AccountId = GetAccountIdByName(accountName);
+                    listing.AccessLimit = Limit;
+                }
+                catch
+                {
+                    // Create a new AccessLimits item
+                    var newLimit = new AccessLimits
+                    {
+                        AccountId = GetAccountIdByName(accountName),
+                        IP = endPoint.Address.GetAddressBytes(),
+                        AccessLimit = Limit
+                    };
+
+                    // Add the new item to the AccessLimits DbSet
+                    context.AccessLimits.Add(newLimit);
+                }
+
+                // Save the changes to the database
+                return context.SaveChanges() > 0;
+
+            }
+        }
+
+        /// <summary>
         /// result will be false if the endPoint was not found.
         /// </summary>
         public bool UpdateIPIsBanned(IPEndPoint endPoint)

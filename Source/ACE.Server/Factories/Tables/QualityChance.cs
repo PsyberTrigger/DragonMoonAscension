@@ -24,12 +24,14 @@ namespace ACE.Server.Factories.Tables
             1.0f,
             1.0f,
             1.0f,
+            1.0f,
             1.0f
         };
 
         private static readonly List<float> T1_QualityChances = new List<float>()
         {
             1.0f,
+            0.0f,
             0.0f,
             0.0f,
             0.0f,
@@ -57,6 +59,7 @@ namespace ACE.Server.Factories.Tables
             0.0f,
             0.0f,
             0.0f,
+            0.0f,
         };
 
         private static readonly List<float> T3_QualityChances = new List<float>()
@@ -65,6 +68,7 @@ namespace ACE.Server.Factories.Tables
             0.50f,
             0.80f,
             1.00f,
+            0.0f,
             0.0f,
             0.0f,
             0.0f,
@@ -89,6 +93,7 @@ namespace ACE.Server.Factories.Tables
             0.0f,
             0.0f,
             0.0f,
+            0.0f,
         };
 
         private static readonly List<float> T5_QualityChances = new List<float>()
@@ -100,6 +105,7 @@ namespace ACE.Server.Factories.Tables
             0.70f,
             0.90f,
             1.00f,
+            0.0f,
             0.0f,
             0.0f,
             0.0f,
@@ -121,6 +127,7 @@ namespace ACE.Server.Factories.Tables
             0.0f,
             0.0f,
             0.0f,
+            0.0f,
         };
 
         private static readonly List<float> T7_QualityChances = new List<float>()
@@ -135,6 +142,7 @@ namespace ACE.Server.Factories.Tables
             0.75f,
             0.90f,
             1.00f,
+            0.0f,
             0.0f,
             0.0f,
         };
@@ -153,6 +161,7 @@ namespace ACE.Server.Factories.Tables
             0.75f,
             0.90f,
             1.00f,
+            0.0f,
         };
 
         private static readonly List<float> T9_QualityChances = new List<float>()
@@ -169,6 +178,7 @@ namespace ACE.Server.Factories.Tables
             0.75f,
             0.90f,
             1.00f,
+            0.0f,
         };
 
         private static readonly List<float> T10_QualityChances = new List<float>()
@@ -185,6 +195,7 @@ namespace ACE.Server.Factories.Tables
             0.75f,
             0.90f,
             1.00f,
+            0.0f,
         };
 
         private static readonly List<float> T11_QualityChances = new List<float>()
@@ -201,6 +212,7 @@ namespace ACE.Server.Factories.Tables
             0.75f,
             0.90f,
             1.00f,
+            0.0f,
         };
 
         private static readonly List<float> T12_QualityChances = new List<float>()
@@ -216,6 +228,24 @@ namespace ACE.Server.Factories.Tables
             0.0f,
             0.0f,
             0.90f,
+            1.00f,
+            0.0f,
+        };
+
+        private static readonly List<float> T13_QualityChances = new List<float>()
+        {
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
             1.00f,
         };
 
@@ -251,6 +281,8 @@ namespace ACE.Server.Factories.Tables
                     return T11_QualityChances;
                 case 12:
                     return T12_QualityChances;
+                case 13:
+                    return T13_QualityChances;
             }
         }
 

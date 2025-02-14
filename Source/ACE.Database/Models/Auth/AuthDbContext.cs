@@ -1,6 +1,8 @@
 using System;
+using System.Threading;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using MySqlConnector;
 
 #nullable disable
 
@@ -18,6 +20,7 @@ namespace ACE.Database.Models.Auth
         }
 
         public virtual DbSet<Accesslevel> Accesslevel { get; set; }
+        public virtual DbSet<AccessLimits> AccessLimits { get; set; }
         public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<BlackList> BlackList { get; set; }
 
@@ -25,14 +28,33 @@ namespace ACE.Database.Models.Auth
         {
             if (!optionsBuilder.IsConfigured)
             {
+                int maxRetries = 500;
+                double initialDelay = 500;
+                double exBackoff = 1.025;
+                double maxDelay = 2000;
+                int retryCount = 0;
                 var config = Common.ConfigManager.Config.MySql.Authentication;
 
                 var connectionString = $"server={config.Host};port={config.Port};user={config.Username};password={config.Password};database={config.Database};{config.ConnectionOptions}";
-
-                optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), builder =>
+                while (retryCount < maxRetries)
                 {
-                    builder.EnableRetryOnFailure(10);
-                });
+                    try
+                    {
+                        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), builder =>
+                            builder.EnableRetryOnFailure(10)
+                        );
+                        break;
+                    }
+                    catch (MySqlException ex)
+                    {
+                        if (ex.Number == 1042)
+                        {
+                            double delay = Math.Min(initialDelay * Math.Pow(exBackoff, retryCount), maxDelay);
+                            retryCount++;
+                            Thread.Sleep((int)delay);
+                        }
+                    }
+                }
             }
         }
 
@@ -66,6 +88,19 @@ namespace ACE.Database.Models.Auth
                     .HasDefaultValueSql("''");
             });
 
+            modelBuilder.Entity<AccessLimits>(entity =>
+            {
+                entity.ToTable("accessLimits");
+
+                entity.Property(e => e.AccountId).HasColumnName("accountId");
+
+                entity.HasKey(e => e.IP)
+                    .HasName("PRIMARY");
+
+                entity.Property(e => e.AccessLimit).HasColumnName("accessLimit")
+                .HasColumnType("tinyint");
+            });
+
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.ToTable("account");
@@ -78,6 +113,10 @@ namespace ACE.Database.Models.Auth
                 entity.Property(e => e.AccountId).HasColumnName("accountId");
 
                 entity.Property(e => e.AccessLevel).HasColumnName("accessLevel");
+
+                entity.Property(e => e.AccessLimitExcess)
+                    .HasColumnType("uint")
+                    .HasColumnName("accessLimitExcess");
 
                 entity.Property(e => e.AccountName)
                     .IsRequired()

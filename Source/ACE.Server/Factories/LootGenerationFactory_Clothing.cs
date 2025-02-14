@@ -622,10 +622,11 @@ namespace ACE.Server.Factories
                 if (!PropertyManager.GetBool("equipmentsetid_enabled").Item)
                     return false;
 
-                if (profile.Tier < 6 || !wo.HasArmorLevel())
+                //if (profile.Tier < 6 || !wo.HasArmorLevel())
+                if (profile.Tier < 6)
                     return false;
 
-                if (wo.ClothingPriority == null || (wo.ClothingPriority & (CoverageMask)CoverageMaskHelper.Outerwear) == 0)
+                if (wo.ClothingPriority == null || (((wo.ClothingPriority & (CoverageMask)CoverageMaskHelper.Outerwear) == 0) && (wo.ClothingPriority & (CoverageMask)CoverageMaskHelper.Outerwear) == 0))
                     return false;
 
                 var dropRate = PropertyManager.GetDouble("equipmentsetid_drop_rate").Item;

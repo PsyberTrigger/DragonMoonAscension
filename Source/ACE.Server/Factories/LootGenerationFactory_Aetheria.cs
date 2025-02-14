@@ -52,11 +52,22 @@ namespace ACE.Server.Factories
 
         public static readonly List<uint> IconOverlay_ItemMaxLevel = new List<uint>()
         {
-            0x6006C34,  // 1
-            0x6006C35,  // 2
-            0x6006C36,  // 3
-            0x6006C37,  // 4
-            0x6006C38,  // 5
+            // Actual Level -- Buff Level
+            0x6006C34,  // 1 -- 1
+            0x6006C35,  // 2 -- 2
+            0x6006C36,  // 3 -- 3
+            0x6006C37,  // 4 -- 4
+            0x6006C38,  // 5 -- 5
+            0x6006C3A,  // 6 -- 6
+            0x6006C3A,  // 7 -- 6
+            0x6006C3B,  // 8 -- 7
+            0x6006C3B,  // 9 -- 7
+            0x6006C3C,  // 10 -- 8
+            0x6006C3C,  // 11 -- 8
+            0x6006C3D,  // 12 -- 9
+            0x6006C3D,  // 13 -- 9
+            0x6006C3D,  // 14 -- 9
+            0x600742D,  // 15 -- 10
         };
 
         private static void MutateAetheria(WorldObject wo, int tier)

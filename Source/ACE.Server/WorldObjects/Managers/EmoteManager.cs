@@ -19,9 +19,7 @@ using ACE.Server.Factories.Enum;
 using ACE.Server.Managers;
 using ACE.Server.Network.GameEvent.Events;
 using ACE.Server.Network.GameMessages.Messages;
-
 using log4net;
-using Microsoft.Extensions.DependencyModel.Resolution;
 using Position = ACE.Entity.Position;
 using Spell = ACE.Server.Entity.Spell;
 
@@ -1503,6 +1501,7 @@ namespace ACE.Server.WorldObjects.Managers
 
                     if (xpWorldModifier >= xpWorldModMax) xpWorldModifier = xpWorldModMax;
                     PropertyManager.ModifyDouble("xp_modifier", xpWorldModifier, true);
+                    PropertyManager.ModifyLong("last_black_dragon_kill", DateTime.Today.Day);
 
                     break;
 
@@ -1570,6 +1569,166 @@ namespace ACE.Server.WorldObjects.Managers
                             $"The current World Luminance Quest Modifier is: {worldQstLumMult}\n" +
                             $"\nYou will recieve {worldExpMult * worldKillMult}x xp per kill, {worldExpMult * worldQstMult}x xp per quest, {worldLumMult}x lum per kill, and {worldLumMult * worldQstLumMult}x lum per quest."));
 
+                    break;
+
+                case EmoteType.MarkDragonDeath:
+
+                    string dragonType = emote.Message.ToLower();
+
+                    switch (dragonType)
+                    {
+                        case "blackdragon":
+                            dragonType = "last_black_dragon_kill";
+                            break;
+                        case "bluedragon":
+                            dragonType = "last_blue_dragon_kill";
+                            break;
+                        case "greendragon":
+                            dragonType = "last_green_dragon_kill";
+                            break;
+                        case "bronzedragon":
+                            dragonType = "last_bronze_dragon_kill";
+                            break;
+                        case "reddragon":
+                            dragonType = "last_red_dragon_kill";
+                            break;
+                        case "golddragon":
+                            dragonType = "last_gold_dragon_kill";
+                            break;
+                        default:
+                            log.Error("EmoteManager was not able to find the dragon type for EmoteType.MarkDragonDeath.");
+                            return delay;
+                    }
+
+                    PropertyManager.ModifyLong(dragonType, DateTime.Today.Day);
+
+                    break;
+
+                case EmoteType.ResetDragonModifiers:
+
+
+                    string dragonType2 = emote.Message.ToLower();
+
+                    switch (dragonType2)
+                    {
+                        case "blackdragon":
+                            dragonType2 = "last_black_dragon_kill";
+                            break;
+                        case "bluedragon":
+                            dragonType2 = "last_blue_dragon_kill";
+                            break;
+                        case "greendragon":
+                            dragonType2 = "last_green_dragon_kill";
+                            break;
+                        case "bronzedragon":
+                            dragonType2 = "last_bronze_dragon_kill";
+                            break;
+                        case "reddragon":
+                            dragonType2 = "last_red_dragon_kill";
+                            break;
+                        case "golddragon":
+                            dragonType2 = "last_gold_dragon_kill";
+                            break;
+                        default:
+                            log.Error("EmoteManager was not able to find the dragon type for EmoteType.ResetDragonModifiers.");
+                            return delay;
+                    }
+
+                    long daysPastSinceKill = Math.Abs(DateTime.Today.Day - PropertyManager.GetLong(dragonType2, 0, true).Item);
+
+                    if (daysPastSinceKill > 3 && DateTime.Today.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        switch (dragonType2)
+                        {
+                            case "blackdragon":
+                                PropertyManager.ModifyDouble("xp_modifier", 1);
+                                PropertyManager.ModifyDouble("quest_xp_modifier", 5);
+                                PropertyManager.ModifyDouble("kill_xp_modifier", 1);
+                                break;
+                            case "bluedragon":
+                                PropertyManager.ModifyDouble("quest_lum_modifier", 1);
+                                PropertyManager.ModifyDouble("luminance_modifier", 5);
+                                break;
+                            case "greendragon":
+                            case "bronzedragon":
+                            case "reddragon":
+                            case "golddragon":
+                            default:
+                                break;
+                        }
+                    }
+
+                    break;
+
+                case EmoteType.IncrementAttributeStat:
+
+                    var attrRank = targetCreature.Attributes[(PropertyAttribute)emote.Stat].Ranks;
+
+                    if (attrRank >= 190 && player != null)
+                    {
+                        targetCreature.Attributes[(PropertyAttribute)emote.Stat].Ranks += (uint)emote.Stat;
+                        player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute(targetCreature, targetCreature.Attributes[(PropertyAttribute)emote.Stat]));
+                    }
+                    break;
+
+                case EmoteType.IncrementAttributeStatBase:
+
+                    var attrBase = targetCreature.Attributes[(PropertyAttribute)emote.Stat].StartingValue;
+
+                    if ((attrBase + emote.Amount <= 100) && player != null)
+                    {
+                        targetCreature.Attributes[(PropertyAttribute)emote.Stat].StartingValue += (uint)emote.Amount;
+                        player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute(player, player.Attributes[(PropertyAttribute)emote.Stat]));
+                    }
+                    break;
+
+                case EmoteType.IncrementVitalStat:
+
+                    if ( targetCreature != null && player != null)
+                    {
+                        
+                        switch(emote.Stat)
+                        {
+                            case 2:
+                                targetCreature.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue += (uint)emote.Amount;
+                                player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.Health, player.Vitals[PropertyAttribute2nd.MaxHealth].StartingValue));
+                                break;
+                            case 4:
+                                targetCreature.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue += (uint)emote.Amount;
+                                player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.Stamina, player.Vitals[PropertyAttribute2nd.MaxStamina].StartingValue));
+                                break;
+                            case 6:
+                                player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue += (uint)emote.Amount;
+                                player.Session.Network.EnqueueSend(new GameMessagePrivateUpdateAttribute2ndLevel(player, Vital.Mana, player.Vitals[PropertyAttribute2nd.MaxMana].StartingValue));
+                                break;
+                        }
+                    }
+                    break;
+
+                case EmoteType.InqBaseAttributeStat:
+
+                    if (targetCreature != null)
+                    {
+                        var attr = targetCreature.Attributes[(PropertyAttribute)emote.Stat];
+
+                        if (attr == null && HasValidTestNoQuality(emote.Message))
+                        {
+                            ExecuteEmoteSet(EmoteCategory.TestNoQuality, emote.Message, targetObject, true);
+                        }
+                        else
+                        {
+                            success = attr != null && attr.StartingValue >= (emote.Min ?? int.MinValue) && attr.StartingValue <= (emote.Max ?? int.MaxValue);
+
+                            ExecuteEmoteSet(success ? EmoteCategory.TestSuccess : EmoteCategory.TestFailure, emote.Message, targetObject, true);
+                        }
+                    }
+                    break;
+
+                case EmoteType.SpendExperience:
+                    if (targetCreature != null)
+                    {
+                        player.SpendXP(emote.Amount64 ?? emote.HeroXP64 ?? 0);
+                    }
                     break;
 
                 default:

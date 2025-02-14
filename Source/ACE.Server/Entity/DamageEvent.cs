@@ -420,15 +420,19 @@ namespace ACE.Server.Entity
 
             // TODO: combat maneuvers for player?
             BaseDamageMod = attacker.GetBaseDamageMod(DamageSource);
-
             // some quest bows can have built-in damage bonus
             if (Weapon?.WeenieType == WeenieType.MissileLauncher)
                 BaseDamageMod.DamageBonus += Weapon.Damage ?? 0;
 
             if (DamageSource.ItemType == ItemType.MissileWeapon)
                 BaseDamageMod.ElementalBonus = WorldObject.GetMissileElementalDamageBonus(Weapon, attacker, DamageType);
-
+            
             BaseDamage = (float)ThreadSafeRandom.Next(BaseDamageMod.MinDamage, BaseDamageMod.MaxDamage);
+            // Trying for more War balance based on skill Not sure I want to add to the rediculous number of calculations that goes into damage though.
+            if (attacker.GetCurrentAttackSkill() == Skill.WarMagic)
+            {
+                BaseDamage = BaseDamage * (1 + (float)(attacker.GetCreatureSkill(Skill.WarMagic).Current * 0.00035));
+            }
         }
 
         /// <summary>

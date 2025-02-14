@@ -1,6 +1,8 @@
 using System;
+using System.Threading;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using MySqlConnector;
 
 #nullable disable
 
@@ -62,14 +64,34 @@ namespace ACE.Database.Models.Shard
         {
             if (!optionsBuilder.IsConfigured)
             {
+                int maxRetries = 500;
+                double initialDelay = 500;
+                double exBackoff = 1.025;
+                double maxDelay = 2000;
+                int retryCount = 0;
                 var config = Common.ConfigManager.Config.MySql.Shard;
 
                 var connectionString = $"server={config.Host};port={config.Port};user={config.Username};password={config.Password};database={config.Database};{config.ConnectionOptions}";
 
-                optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), builder =>
+                while (retryCount < maxRetries)
                 {
-                    builder.EnableRetryOnFailure(10);
-                });
+                    try
+                    {
+                        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), builder =>
+                            builder.EnableRetryOnFailure(10)
+                        );
+                        break;
+                    }
+                    catch (MySqlException ex)
+                    {
+                        if (ex.Number == 1042)
+                        {
+                            double delay = Math.Min(initialDelay * Math.Pow(exBackoff, retryCount), maxDelay);
+                            retryCount++;
+                            Thread.Sleep((int)delay);
+                        }
+                    }
+                }
             }
         }
 

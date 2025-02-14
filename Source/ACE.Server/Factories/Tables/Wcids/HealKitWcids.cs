@@ -48,6 +48,13 @@ namespace ACE.Server.Factories.Tables.Wcids
             ( WeenieClassName.healingkittreated,   0.75f ),
         };
 
+        private static ChanceTable<WeenieClassName> T13_Chances = new ChanceTable<WeenieClassName>()
+        {
+            ( WeenieClassName.c360068_healthkitgreater,     0.34f ),
+            ( WeenieClassName.ace44712_greatermanakit,      0.33f ),
+            ( WeenieClassName.ace44714_greaterstaminakit,   0.33f ),
+        };
+
         private static readonly List<ChanceTable<WeenieClassName>> healKitTiers = new List<ChanceTable<WeenieClassName>>()
         {
             T1_Chances,
@@ -61,7 +68,8 @@ namespace ACE.Server.Factories.Tables.Wcids
             T6_T8_Chances,
             T6_T8_Chances,
             T6_T8_Chances,
-            T6_T8_Chances // T12
+            T6_T8_Chances, //t12
+            T13_Chances //t13
         };
 
         public static WeenieClassName Roll(TreasureDeath profile)

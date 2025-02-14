@@ -1,6 +1,6 @@
 Bow (MissileWeapons) Mutation #1 (6,996 samples):
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
 
     - Chance: 35%:
         DamageMod = 2.35
@@ -9,11 +9,11 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
         DamageMod = 2.37
 
     - Chance: 30%:
-        DamageMod = 2.4
+        DamageMod = 2.40
 
 Bow (MissileWeapons) Mutation #4 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.40
@@ -33,7 +33,73 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
     - Chance: 2%:
         DamageMod = 2.45
 
-Bow (MissileWeapons) Mutation #5 (1,480 samples):
+Bow (MissileWeapons) Mutation #5 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 15%:
+        DamageMod = 2.45
+
+    - Chance: 35%:
+        DamageMod = 2.46
+
+    - Chance: 35%:
+        DamageMod = 2.47
+
+    - Chance: 8%:
+        DamageMod = 2.48
+
+    - Chance: 4%:
+        DamageMod = 2.49
+
+    - Chance: 3%:
+        DamageMod = 2.50
+
+Bow (MissileWeapons) Mutation #6 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 15%:
+        DamageMod = 2.50
+
+    - Chance: 30%:
+        DamageMod = 2.51
+
+    - Chance: 35%:
+        DamageMod = 2.52
+
+    - Chance: 10%:
+        DamageMod = 2.53
+
+    - Chance: 6%:
+        DamageMod = 2.54
+
+    - Chance: 4%:
+        DamageMod = 2.55
+
+Bow (MissileWeapons) Mutation #7 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 80%:
+        DamageMod = 2.50
+
+    - Chance: 6%:
+        DamageMod = 2.51
+
+    - Chance: 5%:
+        DamageMod = 2.52
+
+    - Chance: 4%:
+        DamageMod = 2.53
+
+    - Chance: 3%:
+        DamageMod = 2.54
+
+    - Chance: 2%:
+        DamageMod = 2.55
+
+Bow (MissileWeapons) Mutation #8 (1,480 samples):
 
 Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
@@ -55,7 +121,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 315
 
-Bow (MissileWeapons) Mutation #6 (3,931 samples):
+Bow (MissileWeapons) Mutation #9 (3,931 samples):
 
 Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
@@ -107,7 +173,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 360
 
-Bow (MissileWeapons) Mutation #7 (1,035 samples):
+Bow (MissileWeapons) Mutation #10 (1,035 samples):
 
 Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
@@ -123,7 +189,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 375
 
-Bow (MissileWeapons) Mutation #8 (1,607 samples):
+Bow (MissileWeapons) Mutation #11 (1,607 samples):
 
 Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
@@ -151,7 +217,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 385
 
-Bow (MissileWeapons) Mutation #9 (1,355 samples):
+Bow (MissileWeapons) Mutation #12 (1,355 samples):
 
 Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
@@ -162,151 +228,151 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
         WieldDifficulty = 385
 
     - Chance: 45%:
-        ElementalDamageBonus = 23
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 402
-
-    - Chance: 35%:
         ElementalDamageBonus = 24
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 402
 
-    - Chance: 5%:
-        ElementalDamageBonus = 25
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 402
-
-    - Chance: 3%:
+    - Chance: 35%:
         ElementalDamageBonus = 26
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 402
 
-    - Chance: 2%:
-        ElementalDamageBonus = 27
+    - Chance: 5%:
+        ElementalDamageBonus = 28
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 402
 
-Bow (MissileWeapons) Mutation #10 (1,355 samples):
+    - Chance: 3%:
+        ElementalDamageBonus = 30
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 402
+
+    - Chance: 2%:
+        ElementalDamageBonus = 32
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 402
+
+Bow (MissileWeapons) Mutation #13 (1,355 samples):
 
 Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
     - Chance: 10%:
-        ElementalDamageBonus = 27
+        ElementalDamageBonus = 32
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 402
 
     - Chance: 45%:
-        ElementalDamageBonus = 28
+        ElementalDamageBonus = 35
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 412
 
     - Chance: 35%:
-        ElementalDamageBonus = 29
+        ElementalDamageBonus = 36
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 412
 
     - Chance: 5%:
-        ElementalDamageBonus = 30
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 412
-
-    - Chance: 3%:
-        ElementalDamageBonus = 31
+        ElementalDamageBonus = 37
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 412
 
     - Chance: 2%:
-        ElementalDamageBonus = 32
+        ElementalDamageBonus = 38
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 412
 
-Bow (MissileWeapons) Mutation #11 (1,355 samples):
+    - Chance: 2%:
+        ElementalDamageBonus = 39
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 412
+
+    - Chance: 1%:
+        ElementalDamageBonus = 40
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 412
+
+Bow (MissileWeapons) Mutation #14 (1,355 samples):
 
 Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
-
-    - Chance: 10%:
-        ElementalDamageBonus = 32
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 412
-
-    - Chance: 45%:
-        ElementalDamageBonus = 33
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 422
-
-    - Chance: 35%:
-        ElementalDamageBonus = 34
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 422
-
-    - Chance: 8%:
-        ElementalDamageBonus = 35
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 422
-
-    - Chance: 2%:
-        ElementalDamageBonus = 36
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 422
-
-Bow (MissileWeapons) Mutation #12 (1,355 samples):
-
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
 
     - Chance: 10%:
         ElementalDamageBonus = 40
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
+        WieldDifficulty = 412
 
-    - Chance: 40%:
+    - Chance: 45%:
+        ElementalDamageBonus = 41
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 422
+
+    - Chance: 35%:
         ElementalDamageBonus = 42
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
+        WieldDifficulty = 422
 
-    - Chance: 30%:
+    - Chance: 5%:
+        ElementalDamageBonus = 43
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 422
+
+    - Chance: 3%:
         ElementalDamageBonus = 44
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
+        WieldDifficulty = 422
 
-    - Chance: 10%:
+    - Chance: 2%:
+        ElementalDamageBonus = 45
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 422
+
+Bow (MissileWeapons) Mutation #15 (1,355 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 15%:
         ElementalDamageBonus = 46
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
-    - Chance: 5%:
+    - Chance: 52%:
+        ElementalDamageBonus = 47
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 442
+
+    - Chance: 30%:
         ElementalDamageBonus = 48
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
-    - Chance: 3%:
-        ElementalDamageBonus = 50
+    - Chance: 2%:
+        ElementalDamageBonus = 49
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
-    - Chance: 2%:
-        ElementalDamageBonus = 52
+    - Chance: 1%:
+        ElementalDamageBonus = 50
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442

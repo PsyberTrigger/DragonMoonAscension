@@ -97,12 +97,17 @@ namespace ACE.Server.Network.Managers
                 if (packet.Header.HasFlag(PacketHeaderFlags.LoginRequest))
                 {
                     packetLog.DebugFormat("{0}, {1}", packet, endPoint);
-                    if (GetAuthenticatedSessionCount() >= ConfigManager.Config.Server.Network.MaximumAllowedSessions)
-                    {
-                        log.InfoFormat("Login Request from {0} rejected. Server full.", endPoint);
-                        SendLoginRequestReject(connectionListener, endPoint, CharacterError.LogonServerFull);
-                    }
-                    else if (ServerManager.ShutdownInProgress)
+                    //byte acntLimit = (byte)(DatabaseManager.Authentication.GetAccessLimit(endPoint) + ConfigManager.Config.Server.Network.MaximumAllowedSessionsPerIPAddress);
+                    //int sessCount = GetAuthenticatedSessionCount();
+                    //int sessAddrCount = GetSessionEndpointTotalByAddressCount(endPoint.Address);
+                    //log.InfoFormat($"Limit: {acntLimit} sCount: {sessCount} saCount: {sessAddrCount}", endPoint);
+
+                    //if (sessCount >= acntLimit)
+                    //{
+                    //    log.InfoFormat("Login Request from {0} rejected. Server full.", endPoint);
+                    //    SendLoginRequestReject(connectionListener, endPoint, CharacterError.LogonServerFull);
+                    //}
+                    if (ServerManager.ShutdownInProgress)
                     {
                         log.InfoFormat("Login Request from {0} rejected. Server is shutting down.", endPoint);
                         SendLoginRequestReject(connectionListener, endPoint, CharacterError.ServerCrash1);
@@ -121,9 +126,9 @@ namespace ACE.Server.Network.Managers
                     {
                         log.DebugFormat("Login Request from {0}", endPoint);
 
-                        var ipAllowsUnlimited = ConfigManager.Config.Server.Network.AllowUnlimitedSessionsFromIPAddresses.Contains(endPoint.Address.ToString());
-                        if (ipAllowsUnlimited || ConfigManager.Config.Server.Network.MaximumAllowedSessionsPerIPAddress == -1 || GetSessionEndpointTotalByAddressCount(endPoint.Address) < ConfigManager.Config.Server.Network.MaximumAllowedSessionsPerIPAddress)
-                        {
+                        //var ipAllowsUnlimited = ConfigManager.Config.Server.Network.AllowUnlimitedSessionsFromIPAddresses.Contains(endPoint.Address.ToString());
+                        //if (ipAllowsUnlimited || ConfigManager.Config.Server.Network.MaximumAllowedSessionsPerIPAddress == -1 || sessAddrCount < acntLimit || sessCount < acntLimit)
+                        //{
                             var session = FindOrCreateSession(connectionListener, endPoint);
                             if (session != null)
                             {
@@ -142,12 +147,12 @@ namespace ACE.Server.Network.Managers
                                 log.InfoFormat("Login Request from {0} rejected. Failed to find or create session.", endPoint);
                                 SendLoginRequestReject(connectionListener, endPoint, CharacterError.LogonServerFull);
                             }
-                        }
-                        else
-                        {
-                            // log.InfoFormat("Login Request from {0} rejected. Session would exceed MaximumAllowedSessionsPerIPAddress limit.", endPoint);
-                            SendLoginRequestReject(connectionListener, endPoint, CharacterError.LogonServerFull);
-                        }
+                        //}
+                        //else
+                        //{
+                        //    // log.InfoFormat("Login Request from {0} rejected. Session would exceed MaximumAllowedSessionsPerIPAddress limit.", endPoint);
+                        //    SendLoginRequestReject(connectionListener, endPoint, CharacterError.LogonServerFull);
+                        //}
                     }
                 }
                 else if (sessionMap.Length > packet.Header.Id)

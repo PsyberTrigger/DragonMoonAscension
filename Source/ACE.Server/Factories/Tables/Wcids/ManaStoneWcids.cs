@@ -70,6 +70,10 @@ namespace ACE.Server.Factories.Tables.Wcids
             ( WeenieClassName.manastonegreater,   1.0f )
         };
 
+        private static ChanceTable<WeenieClassName> T13_Chances = new ChanceTable<WeenieClassName>()
+        {
+            ( WeenieClassName.manastoneadjanite,   1.0f )
+        };
 
         private static readonly List<ChanceTable<WeenieClassName>> manaStoneTiers = new List<ChanceTable<WeenieClassName>>()
         {
@@ -84,7 +88,8 @@ namespace ACE.Server.Factories.Tables.Wcids
             T9_Chances,
             T10_Chances,
             T11_Chances,
-            T12_Chances
+            T12_Chances,
+            T13_Chances
         };
 
         public static WeenieClassName Roll(TreasureDeath profile)

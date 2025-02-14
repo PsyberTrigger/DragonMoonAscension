@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -22,6 +22,7 @@ namespace ACE.Database.Models.Auth
         public uint? BannedByAccountId { get; set; }
         public DateTime? BanExpireTime { get; set; }
         public string BanReason { get; set; }
+        public uint AccessLimitExcess { get; set; }
 
         public virtual Accesslevel AccessLevelNavigation { get; set; }
     }

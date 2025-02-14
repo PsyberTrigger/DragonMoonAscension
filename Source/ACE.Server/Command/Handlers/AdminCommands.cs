@@ -33,7 +33,6 @@ using ACE.Server.WorldObjects.Entity;
 
 using Position = ACE.Entity.Position;
 using ACE.Server.Network.Managers;
-using Microsoft.EntityFrameworkCore;
 
 namespace ACE.Server.Command.Handlers
 {
@@ -123,7 +122,7 @@ namespace ACE.Server.Command.Handlers
                     var teleportPOI = DatabaseManager.World.GetCachedPointOfInterest(poi);
                     if (teleportPOI == null)
                     {
-                        session.Network.EnqueueSend(new GameMessageSystemChat($"Location: \"{poi}\" not found. Use \"list\" to display all valid locations.", ChatMessageType.Broadcast));
+                        CommandHandlerHelper.WriteOutputInfo(session, $"Location: \"{poi}\" not found. Use \"list\" to display all valid locations.", ChatMessageType.Broadcast);
                         return;
                     }
                     var weenie = DatabaseManager.World.GetCachedWeenie(teleportPOI.WeenieClassId);
@@ -193,6 +192,180 @@ namespace ACE.Server.Command.Handlers
             // @draw - Draws undrawable things.
 
             // TODO: output
+        }
+
+        // get access limit permissions
+        [CommandHandler("getALPIP",AccessLevel.Developer, CommandHandlerFlag.None, 1, "Lookup the targeted account's last known IP to get the access limit per IP.","[accountName]\nGiven an account name, this command will return the access limit for it's last known IP address.")]
+        public static void HandleGetALPIP(Session session, params string[] parameters)
+        {
+
+            Account account;
+            string msg = "";
+            string convertedLimit = "";
+
+            // stop if no params provided
+            if (parameters.Length == 0)
+            {
+                CommandHandlerHelper.WriteOutputInfo(session, "You must provide and account name, and optionally a number of connections to set the access limit.", ChatMessageType.Broadcast);
+                return;
+            }
+
+            account = DatabaseManager.Authentication.GetAccountByName(parameters[0]);
+
+            if (account == null)
+            {
+                msg = $"No account ID was found by the name of {parameters[0]}.";
+            }
+            else
+            {
+                convertedLimit = DatabaseManager.Authentication.GetALPIP(account.AccountId).ToString();
+                msg = $"The current effective access limit for ({account.AccountId}){account.AccountName} is {convertedLimit}.";
+            }
+
+            CommandHandlerHelper.WriteOutputInfo(session, msg, ChatMessageType.Broadcast);
+        }
+
+        // get access limit excess
+        [CommandHandler("getALPAccount", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Lookup the targeted account's access limit excess.", "[accountName]\nGiven an account name, this command will return the access limit excess.")]
+        public static void HandleGetALPAccount(Session session, params string[] parameters)
+        {
+
+            Account account;
+            string msg = "";
+            string convertedLimit = "";
+
+            // stop if no params provided
+            if (parameters.Length == 0)
+            {
+                CommandHandlerHelper.WriteOutputInfo(session, "You must provide and account name.", ChatMessageType.Broadcast);
+                return;
+            }
+
+            account = DatabaseManager.Authentication.GetAccountByName(parameters[0]);
+
+            if (account == null)
+            {
+                msg = $"No account was found by the name of {parameters[0]}.";
+            }
+            else
+            {
+                convertedLimit = DatabaseManager.Authentication.GetALPAccount(account.AccountId).ToString();
+                msg = $"The current effective access limit for ({account.AccountId}){account.AccountName} is {convertedLimit} plus the default limit.";
+            }
+
+            CommandHandlerHelper.WriteOutputInfo(session, msg, ChatMessageType.Broadcast);
+        }
+
+        // set access limit per account
+        [CommandHandler("setALPAccount", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Change the targeted account's access limit excess.", "[accountName]\nGiven an account name, this command will set the access limit excess.")]
+        public static void HandleSetALPAccount(Session session, params string[] parameters)
+        {
+
+            Account account;
+            string msg = "";
+            bool result = false;
+            string convertedLimit = "";
+            uint limit = 0;
+
+            // stop if no params provided
+            if (parameters.Length == 0)
+            {
+                CommandHandlerHelper.WriteOutputInfo(session, "You must provide and account name.", ChatMessageType.Broadcast);
+                return;
+            }
+            if (parameters.Length >= 2)
+            {
+                if (!uint.TryParse(parameters[1], out limit))
+                {
+                    CommandHandlerHelper.WriteOutputInfo(session, $"Your second parameter must be a number between {uint.MinValue} - {uint.MaxValue}.", ChatMessageType.Broadcast);
+                    return;
+                }
+            }
+
+            account = DatabaseManager.Authentication.GetAccountByName(parameters[0]);
+
+            if (account == null)
+            {
+                msg = $"No account was found by the name of {parameters[0]}.";
+            }
+            else
+            {
+                result = DatabaseManager.Authentication.SetALPAccount(account.AccountName, limit);
+                convertedLimit = DatabaseManager.Authentication.GetALPAccount(account.AccountId).ToString();
+                msg = $"The current effective access limit for ({account.AccountId}){account.AccountName} is {convertedLimit} plus the default limit.";
+                if (result)
+                {
+                    msg += "\n    -- Update was successful.";
+                }
+                else
+                {
+                    msg += "\n    -- Update failed.";
+                }
+            }
+
+            CommandHandlerHelper.WriteOutputInfo(session, msg, ChatMessageType.Broadcast);
+        }
+
+        // add or update access limit permissions
+        [CommandHandler("setALPIP", AccessLevel.Developer, CommandHandlerFlag.None, 1, "Updates the access limits for an IP address and associates an account with it. The default is 3 accounts per IP.",
+            "[accountName [limit]]\nGiven an account name and limit, this command will look up the IP and pass the account and IP to the server to allow the specified connection limit. If no limit is provided, it will default to 3 connections.")]
+        public static void HandleUpdateAccessLimit(Session session, params string[] parameters)
+        {
+            string accnt = "";
+            byte[] lastIP = null;
+            byte limit = 3;
+            byte resolvedLimit = 0;
+            bool saveResult = false;
+            string msg = "";
+
+            // stop if no params provided
+            if (parameters.Length == 0)
+            {
+                CommandHandlerHelper.WriteOutputInfo(session,"You must provide and account name, and optionally a number of connections to set the limit.", ChatMessageType.Broadcast);
+                return;
+            }
+
+            // get account name
+            if (parameters.Length >= 1)
+            {
+                accnt = parameters[0];
+            }
+
+            // get limit
+            if (parameters.Length > 1)
+            {
+                if (!byte.TryParse(parameters[1], out limit))
+                {
+                    CommandHandlerHelper.WriteOutputInfo(session, $"Amount to limit must be a number between {byte.MinValue} - {byte.MaxValue}.", ChatMessageType.Broadcast);
+                    return;
+                }
+            }
+
+            // Find the corrent account to pass
+            Account account;
+            account = DatabaseManager.Authentication.GetAccountByName(accnt);
+            if (account == null)
+            {
+                CommandHandlerHelper.WriteOutputInfo(session, $"No account ID was found by the name of {accnt}.", ChatMessageType.Broadcast);
+                return;
+            }
+
+            // Get last login IP
+            lastIP = account.LastLoginIP;
+            if (lastIP == null)
+            {
+                CommandHandlerHelper.WriteOutputInfo(session, $"No IP was found for ({account.AccountId}){account.AccountName}.", ChatMessageType.Broadcast);
+                return;
+            }
+            IPEndPoint endPoint = ByteArrayToIPEndPoint(lastIP, 0);
+
+            saveResult = DatabaseManager.Authentication.SetALPIP(endPoint, accnt, limit);
+            resolvedLimit = DatabaseManager.Authentication.GetALPIP(endPoint);
+
+            msg = $"({account.AccountId}){account.AccountName} at IP endpoint {endPoint} attempted to update access limit to {limit}\n    -- Success: {saveResult}  -- CurrentLimit: {resolvedLimit}";
+
+            CommandHandlerHelper.WriteOutputInfo(session, msg, ChatMessageType.Broadcast);
+
         }
 
         // banIP
@@ -292,19 +465,19 @@ namespace ACE.Server.Command.Handlers
             return new IPEndPoint(ipAddress, defaultPort);
         }
 
-        // finger [ [-a] character] [-m account]
+        // finger [-c character] | [-a account] [name]
         [CommandHandler("finger", AccessLevel.Sentinel, CommandHandlerFlag.None, 1,
             "Show the given character's account name or vice-versa.",
-            "[ [-a] character] [-m account]\n"
-            + "Given a character name, this command displays the name of the owning account.\nIf the -m option is specified, the argument is considered an account name and the characters owned by that account are displayed.\nIf the -a option is specified, then the character name is fingered but their account is implicitly fingered as well.")]
+            "[ [-c] character] [-a account]\n"
+            + "Given a character name, this command displays the name of the owning account.\nIf the -a option is specified, the argument is considered an account name and the characters owned by that account are displayed.\nIf the -c option is specified, then the character name is fingered but their account is implicitly fingered as well.")]
         public static void HandleFinger(Session session, params string[] parameters)
         {
-            // usage: @finger[ [-a] character] [-m account]
+            // usage: @finger[ [-c] character] [-a account]
             // Given a character name, this command displays the name of the owning account.If the -m option is specified, the argument is considered an account name and the characters owned by that account are displayed.If the -a option is specified, then the character name is fingered but their account is implicitly fingered as well.
             // @finger - Show the given character's account name or vice-versa.
 
-            var lookupCharAndAccount = parameters.Contains("-a");
-            var lookupByAccount = parameters.Contains("-m");
+            var lookupCharAndAccount = parameters.Contains("-c");
+            var lookupByAccount = parameters.Contains("-a");
 
             var charName = "";
             if (lookupByAccount || lookupCharAndAccount)
@@ -320,7 +493,7 @@ namespace ACE.Server.Command.Handlers
                 if (character != null)
                 {
                     if (character.Account != null)
-                        message = $"Login name: {character.Account.AccountName}      Character: {character.Name}\n";
+                        message = $"Login name: {character.Account.AccountName}({character.Account.AccountId})      Character: {character.Name}\n";
                     else
                         message = $"Login name: account not found, character is orphaned.      Character: {character.Name}\n";
                 }
@@ -362,7 +535,11 @@ namespace ACE.Server.Command.Handlers
                         message = $"Account '{account.AccountName}' was banned by {bannedbyAccount} until server time {account.BanExpireTime.Value.ToLocalTime():MMM dd yyyy  h:mmtt}.\n";
                     }
                     else
-                        message = $"Account '{account.AccountName}' is not banned.\n";
+                        message = $"Account '{account.AccountName}' is not banned.";
+                    if (NetworkManager.Find(account.AccountId) != null)
+                        message += " (online)\n";
+                    else
+                        message += " (offline)\n";
                     if (account.AccessLevel > (int)AccessLevel.Player)
                         message += $"Account '{account.AccountName}' has been granted AccessLevel.{((AccessLevel)account.AccessLevel).ToString()} rights.\n";
                     message += $"Account created on {account.CreateTime.ToLocalTime()} by IP: {(account.CreateIP != null ? new IPAddress(account.CreateIP).ToString() : "N/A")} \n";
@@ -372,7 +549,15 @@ namespace ACE.Server.Command.Handlers
                     message += $"{characters.Count} Character(s) owned by: {account.AccountName}\n";
                     message += "-------------------\n";
                     foreach (var character in characters.Where(x => !x.IsDeleted && x.DeleteTime == 0))
-                        message += $"\"{(character.IsPlussed ? "+" : "")}{character.Name}\", ID 0x{character.Id.ToString("X8")}\n";
+                    {
+                        
+                        if (PlayerManager.GetOnlinePlayer(character.Name)?.Session != null)
+                        {
+                            message += $"\"{(character.IsPlussed ? "+" : "")}{character.Name}\", ID 0x{character.Id.ToString("X8")} (Online)\n";
+                        }
+                        else
+                            message += $"\"{(character.IsPlussed ? "+" : "")}{character.Name}\", ID 0x{character.Id.ToString("X8")}\n";
+                    }
                     var pendingDeletedCharacters = characters.Where(x => !x.IsDeleted && x.DeleteTime > 0).ToList();
                     if (pendingDeletedCharacters.Count > 0)
                     {
@@ -593,7 +778,7 @@ namespace ACE.Server.Command.Handlers
         {
             // @myiid - Displays your Instance ID(IID).
 
-            session.Network.EnqueueSend(new GameMessageSystemChat($"GUID: {session.Player.Guid.Full}  - Low: {session.Player.Guid.Low} - High: {session.Player.Guid.High} - (0x{session.Player.Guid.Full:X})", ChatMessageType.Broadcast));
+            CommandHandlerHelper.WriteOutputInfo(session, $"GUID: {session.Player.Guid.Full}  - Low: {session.Player.Guid.Low} - High: {session.Player.Guid.High} - (0x{session.Player.Guid.Full:X})", ChatMessageType.Broadcast);
         }
 
         // myserver
@@ -942,7 +1127,7 @@ namespace ACE.Server.Command.Handlers
             if (player != null)
                 session.Player.Teleport(player.Location);
             else
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Player {playerName} was not found.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Player {playerName} was not found.", ChatMessageType.Broadcast);
         }
 
         /// <summary>
@@ -955,7 +1140,7 @@ namespace ACE.Server.Command.Handlers
             var player = PlayerManager.GetOnlinePlayer(playerName);
             if (player == null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Player {playerName} was not found.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Player {playerName} was not found.", ChatMessageType.Broadcast);
                 return;
             }
             var currentPos = new Position(player.Location);
@@ -976,13 +1161,13 @@ namespace ACE.Server.Command.Handlers
             var player = PlayerManager.GetOnlinePlayer(playerName);
             if (player == null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Player {playerName} was not found.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Player {playerName} was not found.", ChatMessageType.Broadcast);
                 return;
             }
 
             if (player.TeleportedCharacter == null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Player {playerName} does not have a return position saved.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Player {playerName} does not have a return position saved.", ChatMessageType.Broadcast);
                 return;
             }
 
@@ -1038,14 +1223,14 @@ namespace ACE.Server.Command.Handlers
                     .OrderBy(k => k)
                     .DefaultIfEmpty()
                     .Aggregate((a, b) => a + ", " + b);
-                session.Network.EnqueueSend(new GameMessageSystemChat($"All POIs: {list}", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"All POIs: {list}", ChatMessageType.Broadcast);
             }
             else
             {
                 var teleportPOI = DatabaseManager.World.GetCachedPointOfInterest(poi);
                 if (teleportPOI == null)
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat($"Location: \"{poi}\" not found. Use \"list\" to display all valid locations.", ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, $"Location: \"{poi}\" not found. Use \"list\" to display all valid locations.", ChatMessageType.Broadcast);
                     return;
                 }
                 var weenie = DatabaseManager.World.GetCachedWeenie(teleportPOI.WeenieClassId);
@@ -1192,7 +1377,7 @@ namespace ACE.Server.Command.Handlers
                 else
                     msg = $"{wo.Name} (0x{wo.Guid}) has no trophies.";
 
-                session.Network.EnqueueSend(new GameMessageSystemChat(msg, ChatMessageType.System));
+                CommandHandlerHelper.WriteOutputInfo(session, msg, ChatMessageType.System);
             }
         }
 
@@ -1244,16 +1429,16 @@ namespace ACE.Server.Command.Handlers
         {
             if (!Enum.TryParse(parameters[0], true, out SpellId spellId))
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Unknown spell {parameters[0]}", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Unknown spell {parameters[0]}", ChatMessageType.Broadcast);
                 return;
             }
             if (session.Player.RemoveKnownSpell((uint)spellId))
             {
                 var spell = new Entity.Spell(spellId, false);
-                session.Network.EnqueueSend(new GameMessageSystemChat($"{spell.Name} removed from spellbook.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"{spell.Name} removed from spellbook.", ChatMessageType.Broadcast);
             }
             else
-                session.Network.EnqueueSend(new GameMessageSystemChat($"You don't know that spell!", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"You don't know that spell!", ChatMessageType.Broadcast);
         }
 
         // adminhouse
@@ -2370,7 +2555,7 @@ namespace ACE.Server.Command.Handlers
             {
                 if (!int.TryParse(parameters[1], out numToSpawn))
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat($"Amount to spawn must be a number between {int.MinValue} - {int.MaxValue}.", ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, $"Amount to spawn must be a number between {int.MinValue} - {int.MaxValue}.", ChatMessageType.Broadcast);
                     return false;
                 }
             }
@@ -2383,7 +2568,7 @@ namespace ACE.Server.Command.Handlers
                 {
                     if (!int.TryParse(parameters[2], out int _lifespan))
                     {
-                        session.Network.EnqueueSend(new GameMessageSystemChat($"Lifespan must be a number between {int.MinValue} - {int.MaxValue}.", ChatMessageType.Broadcast));
+                        CommandHandlerHelper.WriteOutputInfo(session, $"Lifespan must be a number between {int.MinValue} - {int.MaxValue}.", ChatMessageType.Broadcast);
                         return false;
                     }
                     else
@@ -2399,7 +2584,7 @@ namespace ACE.Server.Command.Handlers
             {
                 if (!int.TryParse(parameters[idx], out int _palette))
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat($"Palette must be number between {int.MinValue} - {int.MaxValue}.", ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, $"Palette must be number between {int.MinValue} - {int.MaxValue}.", ChatMessageType.Broadcast);
                     return false;
                 }
                 else
@@ -2412,7 +2597,7 @@ namespace ACE.Server.Command.Handlers
             {
                 if (!float.TryParse(parameters[idx], out float _shade))
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat($"Shade must be number between {float.MinValue} - {float.MaxValue}.", ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, $"Shade must be number between {float.MinValue} - {float.MaxValue}.", ChatMessageType.Broadcast);
                     return false;
                 }
                 else
@@ -2437,19 +2622,19 @@ namespace ACE.Server.Command.Handlers
 
             if (weenie == null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"{weenieDesc} is not a valid weenie.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"{weenieDesc} is not a valid weenie.", ChatMessageType.Broadcast);
                 return null;
             }
 
             if (!VerifyCreateWeenieType(weenie.WeenieType))
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"You cannot spawn {weenie.ClassName} because it is a {weenie.WeenieType}", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"You cannot spawn {weenie.ClassName} because it is a {weenie.WeenieType}", ChatMessageType.Broadcast);
                 return null;
             }
 
             if (forInventory && weenie.IsStuck())
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"You cannot spawn {weenie.ClassName} in your inventory because it cannot be picked up", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"You cannot spawn {weenie.ClassName} in your inventory because it cannot be picked up", ChatMessageType.Broadcast);
                 return null;
             }
 
@@ -2506,7 +2691,7 @@ namespace ACE.Server.Command.Handlers
 
             if (obj == null || numToSpawn < 1)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"No object was created.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"No object was created.", ChatMessageType.Broadcast);
                 return;
             }
 
@@ -2607,13 +2792,13 @@ namespace ACE.Server.Command.Handlers
 
             if (!int.TryParse(parameters[1], out int count))
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"count must be an integer value", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"count must be an integer value", ChatMessageType.Broadcast);
                 return;
             }
 
             if (count < 1 || count > ushort.MaxValue)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"count must be a between 1 and {ushort.MaxValue}", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"count must be a between 1 and {ushort.MaxValue}", ChatMessageType.Broadcast);
                 return;
             }
 
@@ -2661,7 +2846,7 @@ namespace ACE.Server.Command.Handlers
             {
                 if (!ushort.TryParse(parameters[1], out stackSize) || stackSize == 0)
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat($"stacksize must be number between 1 - {ushort.MaxValue}", ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, $"stacksize must be number between 1 - {ushort.MaxValue}", ChatMessageType.Broadcast);
                     return;
                 }
             }
@@ -2670,7 +2855,7 @@ namespace ACE.Server.Command.Handlers
             {
                 if (!int.TryParse(parameters[2], out int _palette))
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat($"palette must be number between {int.MinValue} - {int.MaxValue}", ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, $"palette must be number between {int.MinValue} - {int.MaxValue}", ChatMessageType.Broadcast);
                     return;
                 }
                 else
@@ -2681,7 +2866,7 @@ namespace ACE.Server.Command.Handlers
             {
                 if (!float.TryParse(parameters[3], out float _shade))
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat($"shade must be number between {float.MinValue} - {float.MaxValue}", ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, $"shade must be number between {float.MinValue} - {float.MaxValue}", ChatMessageType.Broadcast);
                     return;
                 }
                 else
@@ -2795,7 +2980,7 @@ namespace ACE.Server.Command.Handlers
             var args = string.Join(" ", parameters);
             if (!args.Contains(","))
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"There was no player name specified.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"There was no player name specified.", ChatMessageType.Broadcast);
             }
             else
             {
@@ -2807,7 +2992,7 @@ namespace ACE.Server.Command.Handlers
                 if (player != null)
                     player.SendMessage(msg);
                 else
-                    session.Network.EnqueueSend(new GameMessageSystemChat($"Player {playerName} is not online.", ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, $"Player {playerName} is not online.", ChatMessageType.Broadcast);
             }
         }
 
@@ -2843,7 +3028,7 @@ namespace ACE.Server.Command.Handlers
 
             if (objectId == ObjectGuid.Invalid)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"You must select a player to send them a message.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"You must select a player to send them a message.", ChatMessageType.Broadcast);
                 return;
             }    
 
@@ -2851,7 +3036,7 @@ namespace ACE.Server.Command.Handlers
 
             if (wo is null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Unable to locate what you have selected.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Unable to locate what you have selected.", ChatMessageType.Broadcast);
             }
             else if (wo is Player player)
             {
@@ -2861,7 +3046,7 @@ namespace ACE.Server.Command.Handlers
             }
             else
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"You cannot send text to {wo.Name} because it is not a player.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"You cannot send text to {wo.Name} because it is not a player.", ChatMessageType.Broadcast);
             }
         }
 
@@ -2904,7 +3089,7 @@ namespace ACE.Server.Command.Handlers
                         PlayerManager.BroadcastToAuditChannel(session?.Player, $"{(session != null ? session.Player.Name : "CONSOLE")} has started event {eventName}.");
                     }
                     else
-                        session.Network.EnqueueSend(new GameMessageSystemChat($"Unable to start event named {eventName} .", ChatMessageType.Broadcast));
+                        CommandHandlerHelper.WriteOutputInfo(session, $"Unable to start event named {eventName} .", ChatMessageType.Broadcast);
                     break;
                 case "stop":
                     if (EventManager.StopEvent(eventName, session?.Player, null))
@@ -2950,7 +3135,7 @@ namespace ACE.Server.Command.Handlers
 
             if (objectId == ObjectGuid.Invalid)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"You must select a player to force them to drop everything.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"You must select a player to force them to drop everything.", ChatMessageType.Broadcast);
                 return;
             }
 
@@ -2958,7 +3143,7 @@ namespace ACE.Server.Command.Handlers
 
             if (wo is null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Unable to locate what you have selected.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Unable to locate what you have selected.", ChatMessageType.Broadcast);
             }
             else if (wo is Player player)
             {
@@ -3036,7 +3221,7 @@ namespace ACE.Server.Command.Handlers
             }
             else
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"You cannot force {wo.Name} to drop everything because it is not a player.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"You cannot force {wo.Name} to drop everything because it is not a player.", ChatMessageType.Broadcast);
             }
         }
 
@@ -3515,7 +3700,7 @@ namespace ACE.Server.Command.Handlers
 
             if (wo is null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Unable to locate what you have selected.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Unable to locate what you have selected.", ChatMessageType.Broadcast);
             }
             else if (wo is Player player)
             {
@@ -3523,7 +3708,7 @@ namespace ACE.Server.Command.Handlers
             }
             else
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"You cannot heal {wo.Name} because it is not a player.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"You cannot heal {wo.Name} because it is not a player.", ChatMessageType.Broadcast);
             }
         }
 
@@ -3593,7 +3778,7 @@ namespace ACE.Server.Command.Handlers
 
             if (weenie == null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Weenie {weenieDesc} not found in database, unable to morph.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Weenie {weenieDesc} not found in database, unable to morph.", ChatMessageType.Broadcast);
                 return;
             }
 
@@ -3601,11 +3786,11 @@ namespace ACE.Server.Command.Handlers
                 && weenie.WeenieType != WeenieType.Admin && weenie.WeenieType != WeenieType.Sentinel && weenie.WeenieType != WeenieType.Vendor
                 && weenie.WeenieType != WeenieType.Pet && weenie.WeenieType != WeenieType.CombatPet)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Weenie {weenie.GetProperty(PropertyString.Name)} ({weenieDesc}) is of WeenieType.{Enum.GetName(typeof(WeenieType), weenie.WeenieType)} ({weenie.WeenieType}), unable to morph because that is not allowed.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Weenie {weenie.GetProperty(PropertyString.Name)} ({weenieDesc}) is of WeenieType.{Enum.GetName(typeof(WeenieType), weenie.WeenieType)} ({weenie.WeenieType}), unable to morph because that is not allowed.", ChatMessageType.Broadcast);
                 return;
             }
 
-            session.Network.EnqueueSend(new GameMessageSystemChat($"Morphing you into {weenie.GetProperty(PropertyString.Name)} ({weenieDesc})... You will be logged out.", ChatMessageType.Broadcast));
+            CommandHandlerHelper.WriteOutputInfo(session, $"Morphing you into {weenie.GetProperty(PropertyString.Name)} ({weenieDesc})... You will be logged out.", ChatMessageType.Broadcast);
 
             var guid = GuidManager.NewPlayerGuid();
 
@@ -4723,7 +4908,7 @@ namespace ACE.Server.Command.Handlers
             {
                 var e = new Network.Structure.Enchantment(item, enchantment);
                 var info = e.GetInfo();
-                session.Network.EnqueueSend(new GameMessageSystemChat(info, ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, info, ChatMessageType.Broadcast);
             }
         }
 
@@ -4740,7 +4925,7 @@ namespace ACE.Server.Command.Handlers
         {
             if (!Enum.TryParse(parameters[0], true, out MaterialType materialType))
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Couldn't find material type {parameters[0]}", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Couldn't find material type {parameters[0]}", ChatMessageType.Broadcast);
                 return;
             }
 
@@ -4780,7 +4965,7 @@ namespace ACE.Server.Command.Handlers
             {
                 if (parameters[0] == "list")
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat(EnvironListMsg(), ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, EnvironListMsg(), ChatMessageType.Broadcast);
                     return;
                 }
 
@@ -4793,12 +4978,12 @@ namespace ACE.Server.Command.Handlers
 
             if (environChange.IsFog())
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Setting Landblock (0x{session.Player.CurrentLandblock.Id.Landblock:X4}), including direct adjacent landblocks, to EnvironChangeType.{environChange.ToString()}.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Setting Landblock (0x{session.Player.CurrentLandblock.Id.Landblock:X4}), including direct adjacent landblocks, to EnvironChangeType.{environChange.ToString()}.", ChatMessageType.Broadcast);
                 PlayerManager.BroadcastToAuditChannel(session.Player, $"{session.Player.Name} set Landblock (0x{session.Player.CurrentLandblock.Id.Landblock:X4}), including direct adjacent landblocks, to EnvironChangeType.{environChange.ToString()}.");
             }
             else
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Sending EnvironChangeType.{environChange.ToString()} to all players on Landblock (0x{session.Player.CurrentLandblock.Id.Landblock:X4}), including direct adjacent landblocks.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Sending EnvironChangeType.{environChange.ToString()} to all players on Landblock (0x{session.Player.CurrentLandblock.Id.Landblock:X4}), including direct adjacent landblocks.", ChatMessageType.Broadcast);
                 PlayerManager.BroadcastToAuditChannel(session.Player, $"{session.Player.Name} sent EnvironChangeType.{environChange.ToString()} to all players on Landblock (0x{session.Player.CurrentLandblock.Id.Landblock:X4}), including direct adjacent landblocks.");
             }
 
@@ -4816,7 +5001,7 @@ namespace ACE.Server.Command.Handlers
             {
                 if (parameters[0] == "list")
                 {
-                    session.Network.EnqueueSend(new GameMessageSystemChat(EnvironListMsg(), ChatMessageType.Broadcast));
+                    CommandHandlerHelper.WriteOutputInfo(session, EnvironListMsg(), ChatMessageType.Broadcast);
                     return;
                 }
 
@@ -4829,12 +5014,12 @@ namespace ACE.Server.Command.Handlers
 
             if (environChange.IsFog())
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Setting all landblocks to EnvironChangeType.{environChange.ToString()} .", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Setting all landblocks to EnvironChangeType.{environChange.ToString()} .", ChatMessageType.Broadcast);
                 PlayerManager.BroadcastToAuditChannel(session.Player, $"{session.Player.Name} set all landblocks to EnvironChangeType.{environChange.ToString()} .");
             }
             else
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Sending EnvironChangeType.{environChange.ToString()} to all players on all Landblocks.", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Sending EnvironChangeType.{environChange.ToString()} to all players on all Landblocks.", ChatMessageType.Broadcast);
                 PlayerManager.BroadcastToAuditChannel(session.Player, $"{session.Player.Name} sent EnvironChangeType.{environChange.ToString()} to all players on all Landblocks.");
             }
 
@@ -4863,7 +5048,7 @@ namespace ACE.Server.Command.Handlers
 
             if (obj.CurrentLandblock == null)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"{obj.Name} ({obj.Guid}) is not a landblock object", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"{obj.Name} ({obj.Guid}) is not a landblock object", ChatMessageType.Broadcast);
                 return;
             }
 
@@ -4882,11 +5067,11 @@ namespace ACE.Server.Command.Handlers
 
             if (result != Physics.Common.SetPositionError.OK)
             {
-                session.Network.EnqueueSend(new GameMessageSystemChat($"Failed to move {obj.Name} ({obj.Guid}) to current location: {result}", ChatMessageType.Broadcast));
+                CommandHandlerHelper.WriteOutputInfo(session, $"Failed to move {obj.Name} ({obj.Guid}) to current location: {result}", ChatMessageType.Broadcast);
                 return;
 
             }
-            session.Network.EnqueueSend(new GameMessageSystemChat($"Moving {obj.Name} ({obj.Guid}) to current location", ChatMessageType.Broadcast));
+            CommandHandlerHelper.WriteOutputInfo(session, $"Moving {obj.Name} ({obj.Guid}) to current location", ChatMessageType.Broadcast);
 
             obj.Location = obj.PhysicsObj.Position.ACEPosition();
 

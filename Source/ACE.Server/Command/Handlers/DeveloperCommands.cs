@@ -3643,7 +3643,7 @@ namespace ACE.Server.Command.Handlers
             "\nColor: Blue, Yellow, Red" +
             "\nSet: Defense, Destruction, Fury, Growth, Vigor" +
             "\nSurge: Destruction, Protection, Regeneration, Affliction, Festering" +
-            "\nLevel: 1 - 5")]
+            "\nLevel: 1 - 5, 7,9,11,15")]
         public static void HandleCIAetheria(Session session, params string[] parameters)
         {
             if (!Enum.TryParse(parameters[0], true, out AetheriaColor color))
@@ -3667,10 +3667,10 @@ namespace ACE.Server.Command.Handlers
                 return;
             }
 
-            if (!int.TryParse(parameters[3], out var maxLevel) || maxLevel < 1 || maxLevel > 5)
+            if (!int.TryParse(parameters[3], out var maxLevel) || maxLevel < 1 || maxLevel > 16)
             {
                 CommandHandlerHelper.WriteOutputInfo(session, $"Invalid level: {parameters[3]}", ChatMessageType.Broadcast);
-                CommandHandlerHelper.WriteOutputInfo(session, $"Available levels: 1 - 5", ChatMessageType.Broadcast);
+                CommandHandlerHelper.WriteOutputInfo(session, $"Available levels: 1 - 15", ChatMessageType.Broadcast);
                 return;
             }
 

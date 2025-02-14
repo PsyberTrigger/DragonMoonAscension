@@ -41886,5 +41886,6 @@ namespace ACE.Server.Factories.Enum
         ace87830_olthoislasher = 87830,
         ace87831_surface = 87831,
         ace87832_rootsofskuldgenerator = 87832,
+        c360068_healthkitgreater = 360068,
     }
 }

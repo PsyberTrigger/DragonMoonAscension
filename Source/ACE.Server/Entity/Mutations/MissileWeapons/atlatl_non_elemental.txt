@@ -54,7 +54,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Atlatl (MissileWeapons) Mutation #4 (1,370 samples):
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0
 
     - Chance: 20%:
         DamageMod = 2.55
@@ -69,22 +69,6 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
         WieldDifficulty = 290
 
     - Chance: 40%:
-        DamageMod = 2.6
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 290
-
-Atlatl (MissileWeapons) Mutation #5 (1,267 samples):
-
-Tier chances: 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1
-
-    - Chance: 30%:
-        DamageMod = 2.57
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 290
-
-    - Chance: 70%:
         DamageMod = 2.6
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill

@@ -85,7 +85,8 @@ namespace ACE.Server.Factories.Tables
             T8_SpellLevelChances,
             T8_SpellLevelChances,
             T8_SpellLevelChances,
-            T8_SpellLevelChances // T12
+            T8_SpellLevelChances, // T12
+            T8_SpellLevelChances // T13
         };
 
         /// <summary>

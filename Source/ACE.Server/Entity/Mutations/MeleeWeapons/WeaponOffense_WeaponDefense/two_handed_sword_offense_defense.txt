@@ -205,24 +205,116 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
 
 Sword (TwoHandedCombat) Mutation #17:
 		
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
     - Chance: 85%:
         WeaponDefense += 0.02
         WeaponOffense += 0.02
+        CriticalFrequency = 0.25
 
     - Chance: 6%:
         WeaponDefense += 0.03
         WeaponOffense += 0.03
+        CriticalFrequency = 0.3
 
     - Chance: 4%:
         WeaponDefense += 0.04
         WeaponOffense += 0.04
+        CriticalFrequency = 0.34
 
     - Chance: 3%:
         WeaponDefense += 0.05
         WeaponOffense += 0.05
+        CriticalFrequency = 0.38
 
     - Chance: 2%:
         WeaponDefense += 0.06
         WeaponOffense += 0.06
+        CriticalFrequency = 0.42
+
+Sword (TwoHandedCombat) Mutation #18:
+		
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 85%:
+        WeaponDefense += 0.05
+        WeaponOffense += 0.05
+        CriticalFrequency = 0.25
+
+    - Chance: 6%:
+        WeaponDefense += 0.06
+        WeaponOffense += 0.06
+        CriticalFrequency = 0.3
+
+    - Chance: 4%:
+        WeaponDefense += 0.07
+        WeaponOffense += 0.07
+        CriticalFrequency = 0.34
+
+    - Chance: 3%:
+        WeaponDefense += 0.08
+        WeaponOffense += 0.08
+        CriticalFrequency = 0.38
+
+    - Chance: 2%:
+        WeaponDefense += 0.09
+        WeaponOffense += 0.09
+        CriticalFrequency = 0.42
+
+Sword (TwoHandedCombat) Mutation #19:
+		
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 85%:
+        WeaponDefense += 0.08
+        WeaponOffense += 0.08
+        CriticalFrequency = 0.25
+
+    - Chance: 6%:
+        WeaponDefense += 0.09
+        WeaponOffense += 0.09
+        CriticalFrequency = 0.3
+
+    - Chance: 4%:
+        WeaponDefense += 0.10
+        WeaponOffense += 0.10
+        CriticalFrequency = 0.34
+
+    - Chance: 3%:
+        WeaponDefense += 0.11
+        WeaponOffense += 0.11
+        CriticalFrequency = 0.38
+
+    - Chance: 2%:
+        WeaponDefense += 0.12
+        WeaponOffense += 0.12
+        CriticalFrequency = 0.42
+
+Sword (TwoHandedCombat) Mutation #20:
+		
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 85%:
+        WeaponDefense += 0.13
+        WeaponOffense += 0.13
+        CriticalFrequency = 0.36
+
+    - Chance: 6%:
+        WeaponDefense += 0.14
+        WeaponOffense += 0.14
+        CriticalFrequency = 0.38
+
+    - Chance: 4%:
+        WeaponDefense += 0.15
+        WeaponOffense += 0.15
+        CriticalFrequency = 0.40
+
+    - Chance: 3%:
+        WeaponDefense += 0.16
+        WeaponOffense += 0.16
+        CriticalFrequency = 0.42
+
+    - Chance: 2%:
+        WeaponDefense += 0.17
+        WeaponOffense += 0.17
+        CriticalFrequency = 0.45

@@ -85,7 +85,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 MissileWeapons Mutation #8 (1357 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
 
     - Chance: 15%:
         WeaponDefense = 1.17
@@ -103,56 +103,94 @@ MissileWeapons Mutation #9 (0 samples):
 
 Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
-    - Chance: 30%:
-        WeaponDefense = 1.18
+    - Chance: 85%:
+        WeaponDefense += 0.01
+        CriticalFrequency = 0.25
 
-    - Chance: 40%:
-        WeaponDefense = 1.19
+    - Chance: 6%:
+        WeaponDefense += 0.02
+        CriticalFrequency = 0.3
 
-    - Chance: 25%:
-        WeaponDefense = 1.20
+    - Chance: 4%:
+        WeaponDefense += 0.03
+        CriticalFrequency = 0.34
 
     - Chance: 3%:
-        WeaponDefense = 1.21
+        WeaponDefense += 0.04
+        CriticalFrequency = 0.38
 
     - Chance: 2%:
-        WeaponDefense = 1.22
-
+        WeaponDefense += 0.05
+        CriticalFrequency = 0.42
+        
 MissileWeapons Mutation #10 (0 samples):
 
 Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
-    - Chance: 30%:
-        WeaponDefense = 1.18
+    - Chance: 85%:
+        WeaponDefense += 0.04
+        CriticalFrequency = 0.25
 
-    - Chance: 40%:
-        WeaponDefense = 1.19
+    - Chance: 6%:
+        WeaponDefense += 0.05
+        CriticalFrequency = 0.3
 
-    - Chance: 25%:
-        WeaponDefense = 1.20
+    - Chance: 4%:
+        WeaponDefense += 0.06
+        CriticalFrequency = 0.34
 
     - Chance: 3%:
-        WeaponDefense = 1.21
+        WeaponDefense += 0.07
+        CriticalFrequency = 0.38
 
     - Chance: 2%:
-        WeaponDefense = 1.22
+        WeaponDefense += 0.08
+        CriticalFrequency = 0.42
 
 MissileWeapons Mutation #11 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
     - Chance: 85%:
-        WeaponDefense = 1.20
+        WeaponDefense += 0.06
+        CriticalFrequency = 0.25
 
     - Chance: 6%:
-        WeaponDefense = 1.21
+        WeaponDefense += 0.07
+        CriticalFrequency = 0.3
 
     - Chance: 4%:
-        WeaponDefense = 1.22
+        WeaponDefense += 0.08
+        CriticalFrequency = 0.36
 
     - Chance: 3%:
-        WeaponDefense = 1.23
+        WeaponDefense += 0.09
+        CriticalFrequency = 0.38
 
     - Chance: 2%:
-        WeaponDefense = 1.24
+        WeaponDefense += 0.10
+        CriticalFrequency = 0.42
 
+MissileWeapons Mutation #12 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 85%:
+        WeaponDefense += 0.11
+        CriticalFrequency = 0.36
+
+    - Chance: 6%:
+        WeaponDefense += 0.12
+        CriticalFrequency = 0.38
+
+    - Chance: 4%:
+        WeaponDefense += 0.13
+        CriticalFrequency = 0.42
+
+    - Chance: 3%:
+        WeaponDefense += 0.14
+        CriticalFrequency = 0.44
+
+    - Chance: 2%:
+        WeaponDefense += 0.15
+        CriticalFrequency = 0.45

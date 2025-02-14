@@ -21,6 +21,8 @@ using ACE.Server.Network.GameMessages.Messages;
 using ACE.Server.WorldObjects;
 
 using Biota = ACE.Entity.Models.Biota;
+using System.Diagnostics;
+using System.Reactive.Concurrency;
 
 namespace ACE.Server.Managers
 {
@@ -51,6 +53,11 @@ namespace ACE.Server.Managers
         public static void Initialize()
         {
             var results = DatabaseManager.Shard.BaseDatabase.GetAllPlayerBiotasInParallel();
+            int playerCount = 0;
+            var timeElapsed = new Stopwatch();
+            timeElapsed.Start();
+
+            log.Info(" -- Getting all player biotas in parallel for PlayerManager cache...");
 
             Parallel.ForEach(results, ConfigManager.Config.Server.Threading.DatabaseParallelOptions, result =>
             {
@@ -76,7 +83,12 @@ namespace ACE.Server.Managers
                     else
                         log.Error($"PlayerManager.Initialize: couldn't find account for player {offlinePlayer.Name} ({offlinePlayer.Guid})");
                 }
+                playerCount++;
+                Console.Write($"\rCount: {playerCount} of {results.Count}\x1b[K");
             });
+            Console.Write("\n");
+            log.Info($" -- PlayerManagerInitialization for {playerCount} biotas complete!\n -- TTC: {timeElapsed.Elapsed.Minutes}:{timeElapsed.Elapsed.Seconds}:{timeElapsed.Elapsed.Milliseconds}");
+            timeElapsed.Stop();
         }
 
         private static readonly LinkedList<Player> playersPendingLogoff = new LinkedList<Player>();

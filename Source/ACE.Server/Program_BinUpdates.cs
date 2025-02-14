@@ -7,12 +7,12 @@ namespace ACE.Server
     {
         private static void CheckForServerUpdate()
         {
-            log.Info($"Automatic Server version check started...");
+            log.Info($"[STARTUP] Automatic Server version check started...");
             try
             {
                 var worldDb = new Database.WorldDatabase();
                 var currentVersion = worldDb.GetVersion();
-                log.Info($"Current Server Binary: {ServerBuildInfo.FullVersion}");
+                log.Info($" -- Current Server Binary: {ServerBuildInfo.FullVersion}");
 
                 var url = "https://api.github.com/repos/ACEmulator/ACE/releases/latest";
                 using var client = new WebClient();

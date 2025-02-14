@@ -136,6 +136,13 @@ namespace ACE.Entity.Enum
         SetWorldQuestXPModifier       = 9004,
         SetWorldLumModifier           = 9005,
         SetWorldQuestLumModifier      = 9006,
-        InqWorldModifiers             = 9007
+        InqWorldModifiers             = 9007,
+        MarkDragonDeath               = 9008,
+        ResetDragonModifiers          = 9009,
+        IncrementAttributeStat        = 9010,
+        IncrementAttributeStatBase    = 9011,
+        IncrementVitalStat            = 9012,
+        InqBaseAttributeStat          = 9013,
+        SpendExperience               = 9014
     }
 }

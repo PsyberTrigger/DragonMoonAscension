@@ -66,7 +66,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #4 (1,634 samples):
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0
 
     - Chance: 10%:
         DamageMod = 2.34
@@ -91,20 +91,3 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 290
-
-Bow (MissileWeapons) Mutation #5 (1,480 samples):
-
-Tier chances: 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1
-
-    - Chance: 30%:
-        DamageMod = 2.38
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 290
-
-    - Chance: 70%:
-        DamageMod = 2.4
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 290
-

@@ -234,6 +234,21 @@ namespace ACE.Server.Network.Handlers
 
         public static void HandleConnectResponse(Session session)
         {
+            var ipAllowsUnlimited = ConfigManager.Config.Server.Network.AllowUnlimitedSessionsFromIPAddresses.Contains(session.EndPointC2S.Address.ToString());
+            int sessionsAllowed = (int)DatabaseManager.Authentication.GetALPAccount(session.Account) + DatabaseManager.Authentication.GetALPIP(session.EndPointC2S) + ConfigManager.Config.Server.Network.MaximumAllowedSessionsPerIPAddress;
+            // int authenticatedCount = NetworkManager.GetAuthenticatedSessionCount();
+            int sessionsByAddress = NetworkManager.GetSessionEndpointTotalByAddressCount(session.EndPointC2S.Address);
+            if ( !ipAllowsUnlimited && sessionsAllowed < sessionsByAddress)
+            {
+                //log.InfoFormat($"Terminating account connection {session.EndPointC2S}\n    -- IPUnlimited: {ipAllowsUnlimited} {sessionsAllowed} < {authenticatedCount} || {sessionsAllowed} < {sessionsByAddress}", session);
+                session.Terminate(SessionTerminationReason.WorldClosed, new GameMessageCharacterError(CharacterError.LogonServerFull));
+                return;
+            }
+            else
+            {
+                //log.InfoFormat($"Allowing account connection {session.EndPointC2S}\n    -- IPUnlimited: {ipAllowsUnlimited} {sessionsAllowed} < {authenticatedCount} || {sessionsAllowed} < {sessionsByAddress}", session);
+            }
+
             if (WorldManager.WorldStatus == WorldManager.WorldStatusState.Open || session.AccessLevel > AccessLevel.Player)
             {
                 DatabaseManager.Shard.GetCharacters(session.AccountId, false, result =>

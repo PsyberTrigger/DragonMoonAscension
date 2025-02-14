@@ -90,44 +90,21 @@ namespace ACE.Server.Factories.Tables.Wcids
             ( WeenieClassName.staminaphiltre,  0.25f ),
         };
 
-        private static ChanceTable<WeenieClassName> T9_Chances = new ChanceTable<WeenieClassName>()
+        private static ChanceTable<WeenieClassName> T9_T12_Chances = new ChanceTable<WeenieClassName>()
         {
-            ( WeenieClassName.healthtonic,     0.18f ),
-            ( WeenieClassName.manatonic,       0.18f ),
-            ( WeenieClassName.staminatonic,    0.19f ),
-            ( WeenieClassName.healthphiltre,   0.15f ),
-            ( WeenieClassName.manaphiltre,     0.15f ),
-            ( WeenieClassName.staminaphiltre,  0.15f ),
+            ( WeenieClassName.healthtonic,     0.03f ),
+            ( WeenieClassName.manatonic,       0.03f ),
+            ( WeenieClassName.staminatonic,    0.04f ),
+            ( WeenieClassName.healthphiltre,   0.30f ),
+            ( WeenieClassName.manaphiltre,     0.30f ),
+            ( WeenieClassName.staminaphiltre,  0.30f ),
         };
 
-        private static ChanceTable<WeenieClassName> T10_Chances = new ChanceTable<WeenieClassName>()
+        private static ChanceTable<WeenieClassName> T13_Chances = new ChanceTable<WeenieClassName>()
         {
-            ( WeenieClassName.healthtonic,     0.23f ),
-            ( WeenieClassName.manatonic,       0.23f ),
-            ( WeenieClassName.staminatonic,    0.24f ),
-            ( WeenieClassName.healthphiltre,   0.10f ),
-            ( WeenieClassName.manaphiltre,     0.10f ),
-            ( WeenieClassName.staminaphiltre,  0.10f ),
-        };
-
-        private static ChanceTable<WeenieClassName> T11_Chances = new ChanceTable<WeenieClassName>()
-        {
-            ( WeenieClassName.healthtonic,     0.32f ),
-            ( WeenieClassName.manatonic,       0.32f ),
-            ( WeenieClassName.staminatonic,    0.33f ),
-            ( WeenieClassName.healthphiltre,   0.01f ),
-            ( WeenieClassName.manaphiltre,     0.01f ),
-            ( WeenieClassName.staminaphiltre,  0.01f ),
-        };
-
-        private static ChanceTable<WeenieClassName> T12_Chances = new ChanceTable<WeenieClassName>()
-        {
-            ( WeenieClassName.healthtonic,     0.33f ),
-            ( WeenieClassName.manatonic,       0.33f ),
-            ( WeenieClassName.staminatonic,    0.33f ),
-            ( WeenieClassName.healthphiltre,   0.005f ),
-            ( WeenieClassName.manaphiltre,     0.0025f ),
-            ( WeenieClassName.staminaphiltre,  0.0025f ),
+            ( WeenieClassName.beefjerkyrenegade,   0.34f ), // restores 120 hp
+            ( WeenieClassName.manaphiltre,     0.33f ), // restores 100 mana
+            ( WeenieClassName.ace34864_tiriunstalkjerky,  0.33f ), // restores 115 stamina
         };
 
         private static readonly List<ChanceTable<WeenieClassName>> consumeTiers = new List<ChanceTable<WeenieClassName>>()
@@ -140,10 +117,11 @@ namespace ACE.Server.Factories.Tables.Wcids
             T6_T8_Chances,
             T6_T8_Chances,
             T6_T8_Chances,
-            T6_T8_Chances,
-            T6_T8_Chances,
-            T6_T8_Chances,
-            T6_T8_Chances //Tier 12
+            T9_T12_Chances,
+            T9_T12_Chances,
+            T9_T12_Chances,
+            T9_T12_Chances, //Tier 12
+            T13_Chances //Tier 13
         };
 
         public static WeenieClassName Roll(TreasureDeath profile)

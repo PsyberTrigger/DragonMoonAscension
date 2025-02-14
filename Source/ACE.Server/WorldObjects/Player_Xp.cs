@@ -145,6 +145,37 @@ namespace ACE.Server.WorldObjects
 
                 CheckForLevelup();
             }
+            else
+            {
+                var addAmount = amount;
+
+                ///switch (xpType)
+                ///{  case XpType.Kill:
+                ///        addAmount = amount;
+                ///        break;
+                ///    case XpType.Quest:
+                ///    case XpType.Allegiance:
+                ///    case XpType.Proficiency:
+                ///    case XpType.Fellowship:
+                ///        addAmount = amount + (PlayerQstBonus / 32 );
+                ///        break;
+                ///    default:
+                ///        addAmount = amount;
+                ///        break;
+                ///}
+
+
+                var amountLeftToEnd = (long)maxLevelXp - AvailableExperience ?? 0;
+                if (amount > amountLeftToEnd)
+                    addAmount = amountLeftToEnd;
+
+                AvailableExperience += addAmount;
+
+                var xpAvailUpdate = new GameMessagePrivateUpdatePropertyInt64(this, PropertyInt64.AvailableExperience, AvailableExperience ?? 0);
+                Session.Network.EnqueueSend(xpAvailUpdate);
+
+                CheckForLevelup();
+            }
 
             if (xpType == XpType.Quest)
                 Session.Network.EnqueueSend(new GameMessageSystemChat($"You've earned {amount:N0} experience.", ChatMessageType.Broadcast));
@@ -338,7 +369,7 @@ namespace ACE.Server.WorldObjects
                 {
                     PlayParticleEffect(PlayScript.WeddingBliss, Guid);
 
-                    if (Session.Player.Enlightenment == 0)
+                    if (Session.Player.Enlightenment == 0 && Session.Player.Account.AccessLevel < 3)
                     {
                         if (PropertyManager.GetString("level_1000_first", "", true).Item == "Asheron")
                         {
@@ -382,12 +413,12 @@ namespace ACE.Server.WorldObjects
                         }
                         else
                         {
-                            Session.Player.AddTitle(CharacterTitle.ACVeteran);
                             var msg = $"{Session.Player.Name} has reached level {Level} for their first time! They are awarded the title of AC Veteran!";
                             PlayerManager.BroadcastToAll(new GameMessageSystemChat(msg, ChatMessageType.WorldBroadcast));
                             PlayerManager.LogBroadcastChat(Channel.AllBroadcast, null, msg);
                         }
                     }
+                    Session.Player.AddTitle(CharacterTitle.ACVeteran);
                     break;
                 }
             }

@@ -63,11 +63,12 @@ namespace ACE.Server.Factories.Tables.Wcids
             T5_Chances,
             T6_T8_Chances,
             T6_T8_Chances,
+            T6_T8_Chances, // T8
             T6_T8_Chances,
             T6_T8_Chances,
             T6_T8_Chances,
-            T6_T8_Chances,
-            T6_T8_Chances // T12
+            T6_T8_Chances, // T12
+            T6_T8_Chances
         };
 
         public static WeenieClassName Roll(int tier)

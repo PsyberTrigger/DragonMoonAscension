@@ -75,6 +75,14 @@ namespace ACE.Server.Factories.Tables.Wcids
             ( WeenieClassName.peascarabpyreal,   0.50f ),
             ( WeenieClassName.peataperprismatic, 0.25f ),
         };
+
+        private static ChanceTable<WeenieClassName> T13_Chances = new ChanceTable<WeenieClassName>()
+        {
+            ( WeenieClassName.peascarabgold,     0.05f ),
+            ( WeenieClassName.peascarabpyreal,   0.70f ),
+            ( WeenieClassName.peataperprismatic, 0.25f ),
+        };
+
         private static readonly List<ChanceTable<WeenieClassName>> peaTiers = new List<ChanceTable<WeenieClassName>>()
         {
             T1_Chances,
@@ -89,6 +97,7 @@ namespace ACE.Server.Factories.Tables.Wcids
             T10_Chances,
             T11_Chances,
             T12_Chances, // T12
+            T13_Chances
         };
 
         // level 8 spell components have a chance of dropping in t7 / t8

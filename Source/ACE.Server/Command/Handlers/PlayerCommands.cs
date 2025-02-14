@@ -17,12 +17,9 @@ using ACE.Server.WorldObjects;
 using System.Linq;
 using ACE.DatLoader;
 using ACE.Database.Models.Auth;
-using log4net.Core;
 using ACE.Server.Network.Enum;
 using ACE.Database.Models.Shard;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using Microsoft.EntityFrameworkCore.Migrations;
+using ACE.Server.Network.Managers;
 
 
 namespace ACE.Server.Command.Handlers
@@ -41,7 +38,7 @@ namespace ACE.Server.Command.Handlers
             "")]
         public static void HandlePop(Session session, params string[] parameters)
         {
-            CommandHandlerHelper.WriteOutputInfo(session, $"Current world population: {PlayerManager.GetOnlineCount():N0}", ChatMessageType.Broadcast);
+            CommandHandlerHelper.WriteOutputInfo(session, $"Current world population: {PlayerManager.GetOnlineCount():N0}\n  --- Unique Connections: {NetworkManager.GetUniqueSessionEndpointCount():N0}", ChatMessageType.Broadcast);
         }
 
         // recruit
@@ -49,9 +46,10 @@ namespace ACE.Server.Command.Handlers
         public static void HandleRecruit(Session session, params string[] parameters)
         {
 
-            if (DateTime.UtcNow - session.Player.PrevControlledCommandLine < TimeSpan.FromSeconds(10))
+            var tStamp = session.Player.PrevControlledCommandLine.Add(TimeSpan.FromSeconds(10));
+            if (tStamp - DateTime.UtcNow > TimeSpan.Zero)
             {
-                session.Player.SendTransientError("You have used this command too recently! Please wait at least 10 seconds between intensive commands.");
+                session.Player.SendTransientError($"Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer to use this command.");
                 return;
             }
 
@@ -81,12 +79,14 @@ namespace ACE.Server.Command.Handlers
         {
 
 
-            if (DateTime.UtcNow - session.Player.PrevControlledCommandLine < TimeSpan.FromSeconds(10))
+            var tStamp = session.Player.PrevControlledCommandLine.Add(TimeSpan.FromSeconds(10));
+            if (tStamp - DateTime.UtcNow > TimeSpan.Zero)
             {
-                session.Player.SendTransientError("You have used this command too recently! Please wait at least 10 seconds between intensive commands.");
+                session.Player.SendTransientError($"Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer to use this command.");
                 return;
             }
 
+            session.Player.PrevControlledCommandLine = DateTime.UtcNow;
 
             if (parameters == null || parameters.Length == 0 || session.Player.Fellowship != null)
             {
@@ -115,31 +115,30 @@ namespace ACE.Server.Command.Handlers
             if ((!fShipOpen && requestedPlayer.Guid.Full != fShipLeader) || fShipLocked || fShipCount == Fellowship.MaxFellows)
             {
                 msg = $"Fellowship {fShipName} lock status is: {(fShipLocked ? "locked" : "unlocked")}. And the open status is: {(fShipOpen ? "open" : "closed")}. Please see the party leader: {fShipLeaderName} for recruitment!";
-                session.Network.EnqueueSend(new GameMessageSystemChat(msg, ChatMessageType.Broadcast));
-                return;
+                msg += $"\n --- Members of {fShipName}: {fShipCount}";
             }
             else if (!requestedPlayer.Fellowship.Open && requestedPlayer.Guid.Full == requestedPlayer.Fellowship.FellowshipLeaderGuid)
             {
                 msg = $"{fShipName} is a closed fellowship. Please talk with the leader: {fShipLeaderName} to discuss joining.";
-                session.Network.EnqueueSend(new GameMessageSystemChat(msg, ChatMessageType.Broadcast));
-                return;
+                msg += $"\n --- Members of {fShipName}: {fShipCount}";
             }
             else
             {
                 msg = $"Recruit request message sent to {requestedPlayer.Name}.";
-                session.Network.EnqueueSend(new GameMessageSystemChat(msg, ChatMessageType.Broadcast));
                 requestedPlayer.FellowshipRecruit(session.Player);
-                return;
             }
+
+            session.Network.EnqueueSend(new GameMessageSystemChat(msg, ChatMessageType.Broadcast));
         }
 
         [CommandHandler("myshare", AccessLevel.Player, CommandHandlerFlag.None, "Calculates your fellowship share portion from your current location in relation to your fellows.")]
         public static void HandleMyShare(Session session, params string[] parameters)
         {
 
-            if (DateTime.UtcNow - session.Player.PrevMyShare < TimeSpan.FromSeconds(10))
+            var tStamp = session.Player.PrevMyShare.Add(TimeSpan.FromSeconds(30));
+            if (tStamp - DateTime.UtcNow > TimeSpan.Zero)
             {
-                session.Player.SendTransientError("You have used this command too recently! Please wait at least 10 seconds between checks.");
+                session.Player.SendTransientError($"Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer to use this command.");
                 return;
             }
 
@@ -254,18 +253,25 @@ namespace ACE.Server.Command.Handlers
         }
 
         //You need {(xpTable.CharacterLevelXPList[(Level ?? 0) + 1] - (ulong)(TotalExperience ?? 0)):#,###0} more experience to reach your next level!
-        [CommandHandler("nextlevel", AccessLevel.Player, CommandHandlerFlag.None, 0, "Recalls to the Adventurer's Haven.")]
-        [CommandHandler("lvl", AccessLevel.Player, CommandHandlerFlag.None, 0, "Recalls to the Adventurer's Haven.")]
+        [CommandHandler("nextlevel", AccessLevel.Player, CommandHandlerFlag.None, 0, "Displays level info.")]
+        [CommandHandler("level", AccessLevel.Player, CommandHandlerFlag.None, 0, "Displays level info.")]
+        [CommandHandler("lvl", AccessLevel.Player, CommandHandlerFlag.None, 0, "Displays level info.")]
         public static void HandleNextLevel(Session session, params string[] parameters)
         {
 
-            if (DateTime.UtcNow - session.Player.PrevControlledCommandLine < TimeSpan.FromSeconds(10))
+            var tStamp = session.Player.PrevControlledCommandLine.Add(TimeSpan.FromSeconds(10));
+            if (tStamp - DateTime.UtcNow > TimeSpan.Zero)
             {
-                session.Player.SendTransientError("You have used this command too recently! Please wait at least 10 seconds between intensive commands.");
+                session.Player.SendTransientError($"Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer to use this command.");
                 return;
             }
 
             session.Player.PrevControlledCommandLine = DateTime.UtcNow;
+            if (session.Player.GodState != "" && session.Player.GodState != null)
+            {
+                session.Network.EnqueueSend(new GameMessageSystemChat("You are in god mode. Please /ungod to use this command.", ChatMessageType.Broadcast));
+                return;
+            }
             var xpTable = DatManager.PortalDat.XpTable;
             ulong totalExperience = (ulong)(session.Player.TotalExperience ?? 0);
             string msg = "";
@@ -298,15 +304,16 @@ namespace ACE.Server.Command.Handlers
         public static void HandleLum(Session session, params string[] parameters)
         {
 
-            if (DateTime.UtcNow - session.Player.PrevControlledCommandLine < TimeSpan.FromSeconds(10))
+            var tStamp = session.Player.PrevControlledCommandLine.Add(TimeSpan.FromSeconds(10));
+            if (tStamp - DateTime.UtcNow > TimeSpan.Zero)
             {
-                session.Player.SendTransientError("You have used this command too recently! Please wait at least 10 seconds between intensive commands.");
+                session.Player.SendTransientError($"Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer to use this command.");
                 return;
             }
 
             session.Player.PrevControlledCommandLine = DateTime.UtcNow;
             // Ensure player actually has lum first.
-            if(session.Player.MaximumLuminance == null) { session.Network.EnqueueSend(new GameMessageSystemChat("You do not have the ability to gain luminence at this time.",ChatMessageType.Broadcast)); return; }
+            if (session.Player.MaximumLuminance == null) { session.Network.EnqueueSend(new GameMessageSystemChat("You do not have the ability to gain luminence at this time.",ChatMessageType.Broadcast)); return; }
 
             double playerMaxLumin = (ulong)(session.Player.MaximumLuminance ?? 0);
             double playerAvailLumin = (ulong)(session.Player.AvailableLuminance ?? 0);
@@ -322,10 +329,10 @@ namespace ACE.Server.Command.Handlers
         [CommandHandler("skillcredits", AccessLevel.Player, CommandHandlerFlag.None, 0, "Recalls to the Adventurer's Haven.")]
         public static void HandleSkillCredits(Session session, params string[] parameters)
         {
-            var tStamp = session.Player.PrevControlledCommandLine.Add(TimeSpan.FromMinutes(0));
+            var tStamp = session.Player.PrevControlledCommandLine.Add(TimeSpan.FromSeconds(10));
             if (tStamp - DateTime.UtcNow > TimeSpan.Zero)
             {
-                session.Player.SendTransientError($"You have used this command too recently! Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer until using the next command.");
+                session.Player.SendTransientError($"Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer to use this command.");
                 return;
             }
 
@@ -456,7 +463,7 @@ namespace ACE.Server.Command.Handlers
             }
 
             Account thisAccount = DatabaseManager.Authentication.GetAccountByName(session.Account);
-            string banText = $"Player {session.Player.Name} used the Blink Plugin to exploit functions of VTank. This is a zero-tolerance policy violation. Account ({thisAccount.AccountName}) has been autobanned for 365 days.";
+            string banText = $"Player {session.Player.Name} attempted to use the Blink Plugin to exploit functions of VTank. This is a zero-tolerance policy violation. Account ({thisAccount.AccountName}) has been autobanned for 365 days.";
             thisAccount.BannedTime = DateTime.UtcNow;
             thisAccount.BanExpireTime = DateTime.UtcNow + TimeSpan.FromDays(365);
             thisAccount.BanReason = banText;
@@ -475,13 +482,13 @@ namespace ACE.Server.Command.Handlers
         [CommandHandler("myquests", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, "Shows your quest log")]
         public static void HandleQuests(Session session, params string[] parameters)
         {
-            if (DateTime.UtcNow - session.Player.PrevControlledCommandLine < TimeSpan.FromSeconds(10))
+            var tStamp = session.Player.PrevControlledCommandLine.Add(TimeSpan.FromSeconds(15));
+            if (tStamp - DateTime.UtcNow > TimeSpan.Zero)
             {
-                session.Player.SendTransientError("You have used this command too recently! Please wait at least 10 seconds between intensive commands.");
+                session.Player.SendTransientError($"Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer to use this command.");
                 return;
             }
 
-            session.Player.PrevControlledCommandLine = DateTime.UtcNow;
 
             if (!PropertyManager.GetBool("quest_info_enabled").Item)
             {
@@ -496,6 +503,8 @@ namespace ACE.Server.Command.Handlers
                 session.Network.EnqueueSend(new GameMessageSystemChat("Quest list is empty.", ChatMessageType.Broadcast));
                 return;
             }
+
+            session.Player.PrevControlledCommandLine = DateTime.UtcNow;
 
             foreach (var playerQuest in quests)
             {
@@ -519,12 +528,21 @@ namespace ACE.Server.Command.Handlers
             }
         }
 
-        [CommandHandler("checkquest", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, "Shows your quest log entry for a sepecific quest")]
-        public static void HandleCheckQuest(Session session, params string[] parameters)
+        [CommandHandler("qryquest", AccessLevel.Player, CommandHandlerFlag.RequiresWorld, "Shows your quest log entry for a sepecific quest")]
+        public static void HandleQryQuest(Session session, params string[] parameters)
         {
-            var msg = "@checkquest - Check information on your quest.\n";
-            msg += "Usage: @checkquest [questName] - List the quest flags for specified quest name.\n";
-            msg += "  ---  @checkquest fellow [questName] - List the quest flags for your Fellowship. You must be in a fellowship to use this.";
+            var tStamp = session.Player.PrevControlledCommandLine.Add(TimeSpan.FromSeconds(5));
+            if (tStamp - DateTime.UtcNow > TimeSpan.Zero)
+            {
+                session.Player.SendTransientError($"Please wait at least {(tStamp - DateTime.UtcNow):mm':'ss} longer to use this command.");
+                return;
+            }
+
+            session.Player.PrevControlledCommandLine = DateTime.UtcNow;
+            var msg = "@qryquest - Check information on your quest.";
+            msg += "\nUsage: @qryquest [questName] - Lists the quest flags for specified quest name.";
+            msg += "\n  ---  @qryquest fellow [questName] - Lists the quest flags for your Fellowship. You must be in a fellowship to use this.";
+            msg += "\n  ---  Quest name must use proper capitalization.";
 
             if(parameters.Length == 0)
             {
@@ -533,6 +551,7 @@ namespace ACE.Server.Command.Handlers
             }
 
             CharacterPropertiesQuestRegistry quest;
+            var nextSolve = new TimeSpan();
 
             if (parameters[0].Equals("fellow"))
             {
@@ -546,23 +565,27 @@ namespace ACE.Server.Command.Handlers
 
                 if (quest == null)
                 {
-                    session.Player.SendMessage("No quests found.");
+                    session.Player.SendMessage($"Quest flag '{parameters[0]}' not found.");
                     return;
                 }
+
+                nextSolve = session.Player.Fellowship.QuestManager.GetNextSolveTime(quest.QuestName);
             }
             else
             {
-                quest = session.Player.QuestManager.GetQuest(parameters[1]);
+                quest = session.Player.QuestManager.GetQuest(parameters[0]);
 
                 if (quest == null)
                 {
-                    session.Player.SendMessage("No quests found.");
+                    session.Player.SendMessage($"Quest flag '{parameters[0]}' not found.");
                     return;
                 }
+
+                nextSolve = session.Player.QuestManager.GetNextSolveTime(quest.QuestName);
+
             }
 
             msg = $"Quest Name: {quest.QuestName}\nCompletions: {quest.NumTimesCompleted} | Last Completion: {quest.LastTimeCompleted} ({Common.Time.GetDateTimeFromTimestamp(quest.LastTimeCompleted).ToLocalTime()})\n";
-            var nextSolve = session.Player.Fellowship.QuestManager.GetNextSolveTime(quest.QuestName);
 
             if (nextSolve == TimeSpan.MinValue)
                 msg += "Can Solve: Immediately\n";

@@ -53,6 +53,7 @@ namespace ACE.Server.Factories.Tables
             T5_T8_ScrollLevelChances,
             T5_T8_ScrollLevelChances,
             T5_T8_ScrollLevelChances,
+            T5_T8_ScrollLevelChances,
         };
 
         public static int Roll(TreasureDeath profile)
