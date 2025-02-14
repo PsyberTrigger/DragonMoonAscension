@@ -17,8 +17,9 @@ public partial class AuthDbContext : DbContext
     }
 
     public virtual DbSet<Accesslevel> Accesslevel { get; set; }
-
+    public virtual DbSet<AccessLimits> AccessLimits { get; set; }
     public virtual DbSet<Account> Account { get; set; }
+    public virtual DbSet<BlackList> BlackList { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -60,6 +61,19 @@ public partial class AuthDbContext : DbContext
                 .HasMaxLength(45)
                 .HasDefaultValueSql("''")
                 .HasColumnName("prefix");
+        });
+
+        modelBuilder.Entity<AccessLimits>(entity =>
+        {
+            entity.ToTable("accessLimits");
+
+            entity.Property(e => e.AccountId).HasColumnName("accountId");
+
+            entity.HasKey(e => e.IP)
+                .HasName("PRIMARY");
+
+            entity.Property(e => e.AccessLimit).HasColumnName("accessLimit")
+            .HasColumnType("tinyint");
         });
 
         modelBuilder.Entity<Account>(entity =>
@@ -121,6 +135,14 @@ public partial class AuthDbContext : DbContext
                 .HasForeignKey(d => d.AccessLevel)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_accesslevel");
+        });
+
+        modelBuilder.Entity<BlackList>(entity =>
+        {
+            entity.ToTable("blacklist");
+
+            entity.HasKey(e => e.IP)
+                .HasName("PRIMARY");
         });
 
         OnModelCreatingPartial(modelBuilder);
