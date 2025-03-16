@@ -64,10 +64,23 @@ namespace ACE.Server.Factories.Tables.Wcids
 
         private static ChanceTable<int> T12_ItemMaxLevel = new ChanceTable<int>()
         {
-            (  7, 0.500f ),
-            (  9, 0.430f ),
-            ( 11, 0.035f ),
-            ( 15, 0.035f ),
+            (  7, 0.400f ),
+            (  9, 0.400f ),
+            ( 11, 0.120f ),
+            ( 15, 0.080f ),
+        };
+
+        private static ChanceTable<int> T13_ItemMaxLevel = new ChanceTable<int>()
+        {
+            (  9, 0.800f ),
+            ( 11, 0.120f ),
+            ( 15, 0.080f ),
+        };
+
+        private static ChanceTable<int> T14_T15_ItemMaxLevel = new ChanceTable<int>()
+        {
+            ( 11, 0.750f ),
+            ( 15, 0.250f ),
         };
 
         private static readonly List<ChanceTable<int>> itemMaxLevels = new List<ChanceTable<int>>()
@@ -80,6 +93,9 @@ namespace ACE.Server.Factories.Tables.Wcids
             T10_ItemMaxLevel,
             T11_ItemMaxLevel,
             T12_ItemMaxLevel,
+            T13_ItemMaxLevel,
+            T14_T15_ItemMaxLevel,
+            T14_T15_ItemMaxLevel,
         };
 
         public static int Roll_ItemMaxLevel(TreasureDeath profile)

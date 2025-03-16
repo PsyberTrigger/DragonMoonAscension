@@ -86,11 +86,33 @@ namespace ACE.Server.Factories.Tables
             ( 5, 0.34f ),
             ( 6, 0.33f ),
         };
+
         private static ChanceTable<int> T12_NumCantrips = new ChanceTable<int>()
         {
             ( 5, 0.33f ),
             ( 6, 0.34f ),
             ( 7, 0.33f ),
+        };
+
+        private static ChanceTable<int> T13_NumCantrips = new ChanceTable<int>()
+        {
+            ( 6, 0.50f ),
+            ( 7, 0.425f ),
+            ( 8, 0.075f ),
+        };
+
+        private static ChanceTable<int> T14_NumCantrips = new ChanceTable<int>()
+        {
+            ( 7, 0.50f ),
+            ( 8, 0.425f ),
+            ( 9, 0.075f ),
+        };
+
+        private static ChanceTable<int> T15_NumCantrips = new ChanceTable<int>()
+        {
+            ( 8, 0.50f ),
+            ( 9, 0.425f ),
+            ( 10, 0.075f ),
         };
 
         private static readonly List<ChanceTable<int>> _numCantrips = new List<ChanceTable<int>>()
@@ -107,6 +129,9 @@ namespace ACE.Server.Factories.Tables
             T10_NumCantrips,
             T11_NumCantrips,
             T12_NumCantrips,
+            T13_NumCantrips,
+            T14_NumCantrips,
+            T15_NumCantrips,
         };
 
         public static int RollNumCantrips(TreasureDeath profile)
@@ -170,6 +195,21 @@ namespace ACE.Server.Factories.Tables
             ( 4, 1.0f )
         };
 
+        private static ChanceTable<int> T13_CantripLevel = new ChanceTable<int>()
+        {
+            ( 4, 1.0f )
+        };
+
+        private static ChanceTable<int> T14_CantripLevel = new ChanceTable<int>()
+        {
+            ( 4, 1.0f )
+        };
+
+        private static ChanceTable<int> T15_CantripLevel = new ChanceTable<int>()
+        {
+            ( 4, 1.0f )
+        };
+
         private static readonly List<ChanceTable<int>> _cantripLevels = new List<ChanceTable<int>>()
         {
             T1_T2_CantripLevel,
@@ -184,6 +224,9 @@ namespace ACE.Server.Factories.Tables
             T10_CantripLevel,
             T11_CantripLevel,
             T12_CantripLevel,
+            T13_CantripLevel,
+            T14_CantripLevel,
+            T15_CantripLevel,
         };
 
         public static int RollCantripLevel(TreasureDeath profile)

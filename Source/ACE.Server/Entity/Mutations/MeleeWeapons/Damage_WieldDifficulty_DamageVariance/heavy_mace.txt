@@ -1,13 +1,13 @@
 Mace (HeavyWeapons) Mutation #0:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 100%:
 	    Damage = 16
 
 Mace (HeavyWeapons) Mutation #1 (188 samples):
 
-Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 8
@@ -23,7 +23,7 @@ Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #2 (371 samples):
 
-Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 5%:
         Damage += 17
@@ -69,7 +69,7 @@ Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #3 (378 samples):
 
-Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 30
@@ -97,7 +97,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #4 (803 samples):
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 5%:
         Damage += 36
@@ -137,7 +137,7 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #5 (703 samples):
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 43
@@ -171,7 +171,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #6 (1,845 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 2%:
         Damage += 49
@@ -235,7 +235,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #7 (501 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 61
@@ -275,7 +275,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #8 (660 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 68
@@ -309,7 +309,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #9 (660 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 72
@@ -343,7 +343,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
 Mace (HeavyWeapons) Mutation #10 (660 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 76
@@ -377,7 +377,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
 Mace (HeavyWeapons) Mutation #11 (660 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 80
@@ -411,41 +411,95 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
 Mace (HeavyWeapons) Mutation #12 (660 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
-    - Chance: 45%:
-        Damage += 90
+    - Chance: 40%:
+        Damage += 85
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-    - Chance: 35%:
-        Damage += 95
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 500
-
-    - Chance: 10%:
-        Damage += 100
+    - Chance: 50%:
+        Damage += 86
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
     - Chance: 8%:
-        Damage += 105
+        Damage += 87
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
     - Chance: 2%:
-        Damage += 110
+        Damage += 88
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-Mace (HeavyWeapons) Mutation #13:
+Mace (HeavyWeapons) Mutation #13 (0 samples):
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 30%:
+        Damage += Random(89, 95)
+        WieldDifficulty3 = 1
+
+    - Chance: 40%:
+        Damage += Random(96, 100)
+        WieldDifficulty3 = 1
+
+    - Chance: 22%:
+        Damage += Random(101, 102)
+        WieldDifficulty3 = 1
+
+    - Chance: 8%:
+        Damage += Random(103, 104)
+        WieldDifficulty3 = 1
+
+Mace (HeavyWeapons) Mutation #14 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 30%:
+        Damage += Random(105, 110)
+        WieldDifficulty3 = 3
+
+    - Chance: 40%:
+        Damage += Random(111, 115)
+        WieldDifficulty3 = 3
+
+    - Chance: 22%:
+        Damage += Random(116, 120)
+        WieldDifficulty3 = 3
+
+    - Chance: 8%:
+        Damage += Random(121, 122)
+        WieldDifficulty3 = 3
+
+Mace (HeavyWeapons) Mutation #15 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 30%:
+        Damage += Random(123, 130)
+        WieldDifficulty3 = 5
+
+    - Chance: 40%:
+        Damage += Random(131, 136)
+        WieldDifficulty3 = 5
+
+    - Chance: 22%:
+        Damage += Random(137, 141)
+        WieldDifficulty3 = 5
+
+    - Chance: 8%:
+        Damage += Random(142, 143)
+        WieldDifficulty3 = 5
+
+Mace (HeavyWeapons) Mutation #16:
+
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 10%:
         DamageVariance = 0.46
@@ -461,3 +515,13 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 10%:
         DamageVariance = 0.3
+
+Mace (HeavyWeapons) Mutation #17:
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+    - Chance: 100%:
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 500
+        WieldRequirements3 = 9
+        WieldSkillType3 = 390

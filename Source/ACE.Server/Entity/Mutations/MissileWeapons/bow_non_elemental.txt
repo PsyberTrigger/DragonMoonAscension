@@ -1,6 +1,6 @@
 Bow (MissileWeapons) Mutation #1 (472 samples):
 
-Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 70%:
         DamageMod = 2
@@ -10,7 +10,7 @@ Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #2 (807 samples):
 
-Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         DamageMod = 2.14
@@ -38,7 +38,7 @@ Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #3 (768 samples):
 
-Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         DamageMod = 2.24
@@ -66,7 +66,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #4 (1,634 samples):
 
-Tier chances: 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         DamageMod = 2.34

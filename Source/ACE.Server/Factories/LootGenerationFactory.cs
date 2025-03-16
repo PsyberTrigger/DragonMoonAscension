@@ -182,7 +182,33 @@ namespace ACE.Server.Factories
                         lootWorldObject = CreateRandomLootObjects_New(profile, TreasureItemCategory.Item);
 
                         if (lootWorldObject != null)
+                        {
+                            if (lootWorldObject.ItemType == ItemType.Clothing || lootWorldObject.ItemType == ItemType.Jewelry ||
+                                lootWorldObject.ItemType == ItemType.Armor || lootWorldObject.ItemType == ItemType.WeaponOrCaster)
+                            {
+                                switch (profile.Tier)
+                                {
+                                    case 13:
+                                        lootWorldObject.WieldRequirements3 = WieldRequirement.IntStat;
+                                        lootWorldObject.WieldSkillType3 = (int)PropertyInt.Enlightenment;
+                                        lootWorldObject.WieldDifficulty3 = 1;
+                                        break;
+                                    case 14:
+                                        lootWorldObject.WieldRequirements3 = WieldRequirement.IntStat;
+                                        lootWorldObject.WieldSkillType3 = (int)PropertyInt.Enlightenment;
+                                        lootWorldObject.WieldDifficulty3 = 3;
+                                        break;
+                                    case 15:
+                                        lootWorldObject.WieldRequirements3 = WieldRequirement.IntStat;
+                                        lootWorldObject.WieldSkillType3 = (int)PropertyInt.Enlightenment;
+                                        lootWorldObject.WieldDifficulty3 = 5;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
                             loot.Add(lootWorldObject);
+                        }
                     }
                 }
 
@@ -796,6 +822,8 @@ namespace ACE.Server.Factories
             (1200, 6000),    // T11
             (1200, 6500),    // T12
             (4000, 10000),    // T13
+            (8000, 15000),    // T14
+            (10000, 20000),    // T15
         };
 
         private static int Roll_ItemValue(WorldObject wo, int tier)
@@ -923,6 +951,8 @@ namespace ACE.Server.Factories
             4500,   // T11
             5000,   // T12
             6000,   // T13
+            7000,   // T14
+            8000,   // T15
         };
 
         /// <summary>
@@ -1239,6 +1269,8 @@ namespace ACE.Server.Factories
             (2000, 20000), // T11
             (2500, 25000), // T12
             (10000, 25000), // T13
+            (10000, 25000), // T14
+            (10000, 25000), // T15
         };
 
         private static void MutateCoins(WorldObject wo, TreasureDeath profile)
@@ -1290,6 +1322,7 @@ namespace ACE.Server.Factories
                 return;
 
             var wieldLevelReq = 150;
+            var wieldLevelReq3 = 0;
 
             switch (profile.Tier)
             {
@@ -1313,15 +1346,32 @@ namespace ACE.Server.Factories
                 case 12:
                     wieldLevelReq = 1000;
                     break;
+                case 13:
+                    wieldLevelReq = 1000;
+                    wieldLevelReq3 = 1;
+                    break;
+                case 14:
+                    wieldLevelReq = 1000;
+                    wieldLevelReq3 = 3;
+                    break;
+                case 15:
+                    wieldLevelReq = 1000;
+                    wieldLevelReq3 = 5;
+                    break;
                 default:
                     break;
             }
 
+            // as per retail pcaps, must be set to appear in client
             wo.WieldRequirements = WieldRequirement.Level;
             wo.WieldDifficulty = wieldLevelReq;
-
-            // as per retail pcaps, must be set to appear in client
             wo.WieldSkillType = 1;  
+            if (wieldLevelReq3 != 0)
+            {
+                wo.WieldDifficulty3 = wieldLevelReq3;
+                wo.WieldRequirements3 = WieldRequirement.IntStat;
+                wo.WieldSkillType3 = 390;
+            }
         }
     }         
 }

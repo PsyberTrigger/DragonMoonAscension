@@ -1,13 +1,13 @@
 Mace (LightWeapons, FinesseWeapons) Mutation #0:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 100%:
 	    Damage = 12
 
 Mace (LightWeapons, FinesseWeapons) Mutation #1 (340 samples):
 
-Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 8
@@ -23,7 +23,7 @@ Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Mace (LightWeapons, FinesseWeapons) Mutation #2 (635 samples):
 
-Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 5%:
         Damage += 17
@@ -69,7 +69,7 @@ Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Mace (LightWeapons, FinesseWeapons) Mutation #3 (591 samples):
 
-Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 25
@@ -97,7 +97,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Mace (LightWeapons, FinesseWeapons) Mutation #4 (1,172 samples):
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 31
@@ -125,7 +125,7 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
 Mace (LightWeapons, FinesseWeapons) Mutation #5 (1,097 samples):
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 36
@@ -147,7 +147,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Mace (LightWeapons, FinesseWeapons) Mutation #6 (3,204 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 2%:
         Damage += 39
@@ -199,7 +199,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Mace (LightWeapons, FinesseWeapons) Mutation #7 (831 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 49
@@ -233,7 +233,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Mace (LightWeapons, FinesseWeapons) Mutation #8 (1,260 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 55
@@ -259,9 +259,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 430
 
-Mace (LightWeapons, FinesseWeapons) Mutation #9 (1,260 samples):
+Mace (LightWeapons, FinesseWeapons) Mutation #9 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 59
@@ -311,9 +311,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 450
 
-Mace (LightWeapons, FinesseWeapons) Mutation #10 (1,260 samples):
+Mace (LightWeapons, FinesseWeapons) Mutation #10 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 66
@@ -351,9 +351,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 460
 
-Mace (LightWeapons, FinesseWeapons) Mutation #11 (1,260 samples):
+Mace (LightWeapons, FinesseWeapons) Mutation #11 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 71
@@ -397,41 +397,101 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 480
 
-Mace (LightWeapons, FinesseWeapons) Mutation #12 (1,260 samples):
+Mace (LightWeapons, FinesseWeapons) Mutation #12 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
     - Chance: 45%:
-        Damage += 85
+        Damage += 78
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
     - Chance: 35%:
-        Damage += 90
+        Damage += 79
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
     - Chance: 10%:
-        Damage += 95
+        Damage += 80
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
     - Chance: 8%:
-        Damage += 100
+        Damage += 81
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
     - Chance: 2%:
-        Damage += 105
+        Damage += 82
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-Mace (LightWeapons, FinesseWeapons) Mutation #13:
+Mace (LightWeapons, FinesseWeapons) Mutation #13 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 30%:
+        Damage += Random(83, 86)
+        WieldDifficulty3 = 1
+
+    - Chance: 40%:
+        Damage += Random(87, 90)
+        WieldDifficulty3 = 1
+
+    - Chance: 22%:
+        Damage += Random(91, 94)
+        WieldDifficulty3 = 1
+
+    - Chance: 8%:
+        Damage += Random(95, 96)
+        WieldDifficulty3 = 1
+
+Mace (LightWeapons, FinesseWeapons) Mutation #14 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 30%:
+        Damage += Random(97, 101)
+        WieldDifficulty3 = 3
+
+    - Chance: 40%:
+        Damage += Random(102, 107)
+        WieldDifficulty3 = 3
+
+    - Chance: 22%:
+        Damage += Random(108, 110)
+        WieldDifficulty3 = 3
+
+    - Chance: 8%:
+        Damage += Random(111, 112)
+        WieldDifficulty3 = 3
+
+Mace (LightWeapons, FinesseWeapons) Mutation #15 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 30%:
+        Damage += Random(113, 118)
+        WieldDifficulty3 = 5
+
+    - Chance: 40%:
+        Damage += Random(119, 126)
+        WieldDifficulty3 = 5
+
+    - Chance: 22%:
+        Damage += Random(127, 129)
+        WieldDifficulty3 = 5
+
+    - Chance: 8%:
+        Damage += Random(130, 131)
+        WieldDifficulty3 = 5
+
+Mace (LightWeapons, FinesseWeapons) Mutation #16:
 
 Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
@@ -449,3 +509,13 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 10%:
         DamageVariance = 0.23
+
+Mace (LightWeapons, FinesseWeapons) Mutation #17:
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+    - Chance: 100%:
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 500
+        WieldRequirements3 = 9
+        WieldSkillType3 = 390

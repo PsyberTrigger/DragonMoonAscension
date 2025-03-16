@@ -52,25 +52,7 @@ namespace ACE.Server.Factories.Tables.Wcids
             ( WeenieClassName.ace31815_electricslingshot, 0.07f ),
         };
 
-        private static ChanceTable<WeenieClassName> T9_T12_Chances = new ChanceTable<WeenieClassName>()
-        {
-            ( WeenieClassName.atlatlslashing,             0.072f ),
-            ( WeenieClassName.atlatlpiercing,             0.072f ),
-            ( WeenieClassName.atlatlblunt,                0.072f ),
-            ( WeenieClassName.atlatlacid,                 0.071f ),
-            ( WeenieClassName.atlatlfire,                 0.071f ),
-            ( WeenieClassName.atlatlfrost,                0.071f ),
-            ( WeenieClassName.atlatlelectric,             0.071f ),
-            ( WeenieClassName.ace31812_slashingslingshot, 0.072f ),
-            ( WeenieClassName.ace31818_piercingslingshot, 0.072f ),
-            ( WeenieClassName.ace31814_bluntslingshot,    0.072f ),
-            ( WeenieClassName.ace31813_acidslingshot,     0.071f ),
-            ( WeenieClassName.ace31816_fireslingshot,     0.071f ),
-            ( WeenieClassName.ace31817_frostslingshot,    0.071f ),
-            ( WeenieClassName.ace31815_electricslingshot, 0.071f ),
-        };
-
-        private static ChanceTable<WeenieClassName> T13_Chances = new ChanceTable<WeenieClassName>()
+        private static ChanceTable<WeenieClassName> T9_T15_Chances = new ChanceTable<WeenieClassName>()
         {
             ( WeenieClassName.atlatlslashing,             0.072f ),
             ( WeenieClassName.atlatlpiercing,             0.072f ),
@@ -98,11 +80,13 @@ namespace ACE.Server.Factories.Tables.Wcids
             T6_T8_Chances,
             T6_T8_Chances,
             T6_T8_Chances,
-            T9_T12_Chances,
-            T9_T12_Chances,
-            T9_T12_Chances,
-            T9_T12_Chances,
-            T13_Chances
+            T9_T15_Chances,
+            T9_T15_Chances,
+            T9_T15_Chances,
+            T9_T15_Chances,
+            T9_T15_Chances,
+            T9_T15_Chances,
+            T9_T15_Chances
         };
 
         public static WeenieClassName Roll(int tier)

@@ -1,6 +1,6 @@
 Covenant Armor Mutation #3:
 
-Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         ArmorLevel = 110
@@ -25,7 +25,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Covenant Armor Mutation #4:
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         ArmorLevel = 210
@@ -50,7 +50,7 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
 Covenant Armor Mutation #5:
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         ArmorLevel = 360
@@ -75,7 +75,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Covenant Armor Mutation #6:
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         ArmorLevel = 410
@@ -100,7 +100,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Covenant Armor Mutation #7:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 30%:
         ArmorLevel = 430
@@ -130,7 +130,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #8:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 100%:
 
@@ -143,7 +143,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #9:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 100%:
 
@@ -156,7 +156,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
 
 Covenant Armor Mutation #10:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 30%:
         ArmorModVsSlash += 0.1
@@ -172,7 +172,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #11:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 30%:
         ArmorModVsPierce += 0.1
@@ -185,7 +185,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #12:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 30%:
         ArmorModVsBludgeon += 0.1
@@ -198,7 +198,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #13:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 10%:
         ArmorModVsCold += 0.2
@@ -217,7 +217,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #14:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 10%:
         ArmorModVsFire += 0.2
@@ -236,7 +236,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #15:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 10%:
         ArmorModVsAcid += 0.2
@@ -255,7 +255,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #16:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 10%:
         ArmorModVsElectric += 0.2
@@ -274,7 +274,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #17:
 
-Tier chances: 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 5%:
         EncumbranceVal *= Random(0.65, 0.75)
@@ -287,7 +287,7 @@ Tier chances: 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0
 
 Covenant Armor Mutation #18:
 
-Tier chances: 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 5%:
         EncumbranceVal *= Random(0.55, 0.65)
@@ -300,7 +300,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 
 Covenant Armor Mutation #19:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 100%:
 
@@ -308,7 +308,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
 Covenant Armor Mutation #20:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 100%:
 
@@ -316,9 +316,35 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
 Covenant Armor Mutation #21:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
 
     - Chance: 100%:
 
         WieldDifficulty2 = 1000
+
+Covenant Armor Mutation #22:
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+
+    - Chance: 100%:
+
+        WieldRequirements3 = 9
+        WieldDifficulty3 = 1
+        WieldSkillType3 = 390
+
+Covenant Armor Mutation #23:
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 100%:
+
+        WieldDifficulty3 = 3
+
+Covenant Armor Mutation #24:
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 100%:
+
+        WieldDifficulty3 = 5
 

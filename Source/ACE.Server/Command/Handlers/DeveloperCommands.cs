@@ -2350,7 +2350,7 @@ namespace ACE.Server.Command.Handlers
         {
             var tier = 1;
             int.TryParse(parameters[0], out tier);
-            tier = Math.Clamp(tier, 1, 12);//tier = Math.Clamp(tier, 1, 8);
+            tier = Math.Clamp(tier, 1, 15);//tier = Math.Clamp(tier, 1, 8);
 
             var numItems = 1;
             if (parameters.Length > 1)

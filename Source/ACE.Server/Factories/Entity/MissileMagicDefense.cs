@@ -100,6 +100,9 @@ namespace ACE.Server.Factories.Entity
                 case 11:
                     return T11_Defense.Roll();
                 case 12:
+                case 13:
+                case 14:
+                case 15:
                     return T12_Defense.Roll();
                 default:
                     return null;

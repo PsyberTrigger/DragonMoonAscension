@@ -1,13 +1,13 @@
 Unarmed (HeavyWeapons) Mutation #0:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 100%:
 	    Damage = 14
 
 Unarmed (HeavyWeapons) Mutation #1 (148 samples):
 
-Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 7
@@ -23,7 +23,7 @@ Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Unarmed (HeavyWeapons) Mutation #2 (255 samples):
 
-Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 5%:
         Damage += 15
@@ -69,7 +69,7 @@ Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Unarmed (HeavyWeapons) Mutation #3 (259 samples):
 
-Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 26
@@ -97,7 +97,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Unarmed (HeavyWeapons) Mutation #4 (537 samples):
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 31
@@ -131,7 +131,7 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
 Unarmed (HeavyWeapons) Mutation #5 (519 samples):
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 37
@@ -159,7 +159,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Unarmed (HeavyWeapons) Mutation #6 (1,288 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 42
@@ -217,7 +217,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Unarmed (HeavyWeapons) Mutation #7 (323 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 53
@@ -251,7 +251,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Unarmed (HeavyWeapons) Mutation #8 (540 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         Damage += 59
@@ -273,7 +273,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
 Unarmed (HeavyWeapons) Mutation #9 (276 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 61
@@ -305,9 +305,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 450
 
-Unarmed (HeavyWeapons) Mutation #10 (276 samples):
+Unarmed (HeavyWeapons) Mutation #10 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 65
@@ -339,9 +339,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 460
 
-Unarmed (HeavyWeapons) Mutation #11 (276 samples):
+Unarmed (HeavyWeapons) Mutation #11 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 69
@@ -373,35 +373,89 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 480
 
-Unarmed (HeavyWeapons) Mutation #12 (276 samples):
+Unarmed (HeavyWeapons) Mutation #12 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
-    - Chance: 25%:
-        Damage += 80
+    - Chance: 40%:
+        Damage += 74
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-    - Chance: 25%:
-        Damage += 85
+    - Chance: 50%:
+        Damage += 75
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-    - Chance: 25%:
-        Damage += 90
+    - Chance: 10%:
+        Damage += 76
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-    - Chance: 25%:
-        Damage += 95
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 500
+Unarmed (HeavyWeapons) Mutation #13 (0 samples):
 
-Unarmed (HeavyWeapons) Mutation #13:
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 30%:
+        Damage += Random(77, 80)
+        WieldDifficulty3 = 1
+
+    - Chance: 40%:
+        Damage += Random(81, 85)
+        WieldDifficulty3 = 1
+
+    - Chance: 22%:
+        Damage += Random(86, 88)
+        WieldDifficulty3 = 1
+
+    - Chance: 8%:
+        Damage += Random(89, 90)
+        WieldDifficulty3 = 1
+
+Unarmed (HeavyWeapons) Mutation #14 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 30%:
+        Damage += Random(91, 95)
+        WieldDifficulty3 = 3
+
+    - Chance: 40%:
+        Damage += Random(96, 100)
+        WieldDifficulty3 = 3
+
+    - Chance: 22%:
+        Damage += Random(101, 104)
+        WieldDifficulty3 = 3
+
+    - Chance: 8%:
+        Damage += Random(105, 106)
+        WieldDifficulty3 = 3
+
+Unarmed (HeavyWeapons) Mutation #15 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 30%:
+        Damage += Random(107, 113)
+        WieldDifficulty3 = 5
+
+    - Chance: 40%:
+        Damage += Random(114, 117)
+        WieldDifficulty3 = 5
+
+    - Chance: 22%:
+        Damage += Random(118, 122)
+        WieldDifficulty3 = 5
+
+    - Chance: 8%:
+        Damage += Random(123, 124)
+        WieldDifficulty3 = 5
+
+Unarmed (HeavyWeapons) Mutation #16:
 
 Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
@@ -419,3 +473,13 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 10%:
         DamageVariance = 0.44
+
+Unarmed (HeavyWeapons) Mutation #17:
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+    - Chance: 100%:
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 500
+        WieldRequirements3 = 9
+        WieldSkillType3 = 390

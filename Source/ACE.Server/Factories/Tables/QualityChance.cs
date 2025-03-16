@@ -25,12 +25,16 @@ namespace ACE.Server.Factories.Tables
             1.0f,
             1.0f,
             1.0f,
+            1.0f,
+            1.0f,
             1.0f
         };
 
         private static readonly List<float> T1_QualityChances = new List<float>()
         {
             1.0f,
+            0.0f,
+            0.0f,
             0.0f,
             0.0f,
             0.0f,
@@ -60,6 +64,8 @@ namespace ACE.Server.Factories.Tables
             0.0f,
             0.0f,
             0.0f,
+            0.0f,
+            0.0f
         };
 
         private static readonly List<float> T3_QualityChances = new List<float>()
@@ -68,6 +74,8 @@ namespace ACE.Server.Factories.Tables
             0.50f,
             0.80f,
             1.00f,
+            0.0f,
+            0.0f,
             0.0f,
             0.0f,
             0.0f,
@@ -94,6 +102,8 @@ namespace ACE.Server.Factories.Tables
             0.0f,
             0.0f,
             0.0f,
+            0.0f,
+            0.0f,
         };
 
         private static readonly List<float> T5_QualityChances = new List<float>()
@@ -105,6 +115,8 @@ namespace ACE.Server.Factories.Tables
             0.70f,
             0.90f,
             1.00f,
+            0.0f,
+            0.0f,
             0.0f,
             0.0f,
             0.0f,
@@ -128,6 +140,8 @@ namespace ACE.Server.Factories.Tables
             0.0f,
             0.0f,
             0.0f,
+            0.0f,
+            0.0f,
         };
 
         private static readonly List<float> T7_QualityChances = new List<float>()
@@ -142,6 +156,8 @@ namespace ACE.Server.Factories.Tables
             0.75f,
             0.90f,
             1.00f,
+            0.0f,
+            0.0f,
             0.0f,
             0.0f,
             0.0f,
@@ -162,6 +178,8 @@ namespace ACE.Server.Factories.Tables
             0.90f,
             1.00f,
             0.0f,
+            0.0f,
+            0.0f,
         };
 
         private static readonly List<float> T9_QualityChances = new List<float>()
@@ -178,6 +196,8 @@ namespace ACE.Server.Factories.Tables
             0.75f,
             0.90f,
             1.00f,
+            0.0f,
+            0.0f,
             0.0f,
         };
 
@@ -196,6 +216,8 @@ namespace ACE.Server.Factories.Tables
             0.90f,
             1.00f,
             0.0f,
+            0.0f,
+            0.0f,
         };
 
         private static readonly List<float> T11_QualityChances = new List<float>()
@@ -212,6 +234,8 @@ namespace ACE.Server.Factories.Tables
             0.75f,
             0.90f,
             1.00f,
+            0.0f,
+            0.0f,
             0.0f,
         };
 
@@ -230,10 +254,52 @@ namespace ACE.Server.Factories.Tables
             0.90f,
             1.00f,
             0.0f,
+            0.0f,
+            0.0f,
         };
 
         private static readonly List<float> T13_QualityChances = new List<float>()
         {
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            1.00f,
+            0.0f,
+            0.0f,
+        };
+
+        private static readonly List<float> T14_QualityChances = new List<float>()
+        {
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            0.0f,
+            1.00f,
+            0.0f,
+        };
+
+        private static readonly List<float> T15_QualityChances = new List<float>()
+        {
+            0.0f,
+            0.0f,
             0.0f,
             0.0f,
             0.0f,
@@ -257,7 +323,6 @@ namespace ACE.Server.Factories.Tables
             switch (tier)
             {
                 case 1:
-                default:
                     return T1_QualityChances;
                 case 2:
                     return T2_QualityChances;
@@ -283,6 +348,12 @@ namespace ACE.Server.Factories.Tables
                     return T12_QualityChances;
                 case 13:
                     return T13_QualityChances;
+                case 14:
+                    return T14_QualityChances;
+                case 15:
+                    return T15_QualityChances;
+                default:
+                    return T1_QualityChances;
             }
         }
 

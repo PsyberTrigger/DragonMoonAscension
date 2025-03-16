@@ -1,13 +1,13 @@
 Axe (HeavyWeapons) Mutation #0:
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 100%:
 	    Damage = 22
 
 Axe (HeavyWeapons) Mutation #1 (199 samples):
 
-Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 9
@@ -23,7 +23,7 @@ Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Axe (HeavyWeapons) Mutation #2 (337 samples):
 
-Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 5%:
         Damage += 19
@@ -69,7 +69,7 @@ Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Axe (HeavyWeapons) Mutation #3 (311 samples):
 
-Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 20%:
         Damage += 35
@@ -91,7 +91,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Axe (HeavyWeapons) Mutation #4 (732 samples):
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 38
@@ -125,7 +125,7 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
 Axe (HeavyWeapons) Mutation #5 (623 samples):
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 44
@@ -159,7 +159,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Axe (HeavyWeapons) Mutation #6 (1,692 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 2%:
         Damage += 50
@@ -223,7 +223,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Axe (HeavyWeapons) Mutation #7 (439 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 4%:
         Damage += 63
@@ -275,7 +275,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Axe (HeavyWeapons) Mutation #8 (646 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         Damage += 71
@@ -301,9 +301,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 430
 
-Axe (HeavyWeapons) Mutation #9 (646 samples):
+Axe (HeavyWeapons) Mutation #9 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 74
@@ -335,9 +335,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 450
 
-Axe (HeavyWeapons) Mutation #10 (646 samples):
+Axe (HeavyWeapons) Mutation #10 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 79
@@ -369,9 +369,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 460
 
-Axe (HeavyWeapons) Mutation #11 (646 samples):
+Axe (HeavyWeapons) Mutation #11 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 10%:
         Damage += 82
@@ -403,37 +403,97 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 480
 
-Axe (HeavyWeapons) Mutation #12 (646 samples):
+Axe (HeavyWeapons) Mutation #12 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
-    - Chance: 25%:
-        Damage += 71
+    - Chance: 30%:
+        Damage += 87
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-    - Chance: 25%:
-        Damage += 72
+    - Chance: 40%:
+        Damage += 88
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-    - Chance: 25%:
-        Damage += 73
+    - Chance: 22%:
+        Damage += 89
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-    - Chance: 25%:
-        Damage += 74
+    - Chance: 8%:
+        Damage += 90
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 500
 
-Axe (HeavyWeapons) Mutation #13:
+Axe (HeavyWeapons) Mutation #13 (0 samples):
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 30%:
+        Damage += Random(91, 95)
+        WieldDifficulty3 = 1
+
+    - Chance: 40%:
+        Damage += Random(96, 100)
+        WieldDifficulty3 = 1
+
+    - Chance: 22%:
+        Damage += Random(101, 105)
+        WieldDifficulty3 = 1
+
+    - Chance: 8%:
+        Damage += Random(106, 107)
+        WieldDifficulty3 = 1
+
+Axe (HeavyWeapons) Mutation #14 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 30%:
+        Damage += Random(108, 114)
+        WieldDifficulty3 = 3
+
+    - Chance: 40%:
+        Damage += Random(115, 120)
+        WieldDifficulty3 = 3
+
+    - Chance: 22%:
+        Damage += Random(121, 124)
+        WieldDifficulty3 = 3
+
+    - Chance: 8%:
+        Damage += Random(125, 126)
+        WieldDifficulty3 = 3
+
+Axe (HeavyWeapons) Mutation #15 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 30%:
+        Damage += Random(127, 133)
+        WieldDifficulty3 = 5
+
+    - Chance: 40%:
+        Damage += Random(134, 139)
+        WieldDifficulty3 = 5
+
+    - Chance: 22%:
+        Damage += Random(140, 146)
+        WieldDifficulty3 = 5
+
+    - Chance: 8%:
+        Damage += Random(147, 148)
+        WieldDifficulty3 = 5
+
+Axe (HeavyWeapons) Mutation #16:
+
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 20%:
         DamageVariance = 0.95
@@ -447,9 +507,9 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
     - Chance: 15%:
         DamageVariance = 0.8
 
-Axe (HeavyWeapons) Mutation #14:
+Axe (HeavyWeapons) Mutation #17:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 20%:
         DamageVariance = 0.90
@@ -462,3 +522,13 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
 
     - Chance: 15%:
         DamageVariance = 0.72
+
+Axe (HeavyWeapons) Mutation #18:
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+    - Chance: 100%:
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 500
+        WieldRequirements3 = 9
+        WieldSkillType3 = 390

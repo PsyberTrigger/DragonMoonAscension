@@ -1,6 +1,6 @@
 Atlatl (MissileWeapons) Mutation #1 (6,150 samples):
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.45
@@ -13,7 +13,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
 
 Atlatl (MissileWeapons) Mutation #4 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.60
@@ -35,7 +35,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
 Atlatl (MissileWeapons) Mutation #5 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.65
@@ -57,7 +57,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
 Atlatl (MissileWeapons) Mutation #6 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.70
@@ -79,7 +79,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
 Atlatl (MissileWeapons) Mutation #7 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
 
     - Chance: 30%:
         DamageMod = 2.75
@@ -101,7 +101,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
 
 Atlatl (MissileWeapons) Mutation #8 (1,267 samples):
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 20%:
         ElementalDamageBonus = 2
@@ -123,7 +123,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Atlatl (MissileWeapons) Mutation #9 (3,562 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 2.5%:
         ElementalDamageBonus = 5
@@ -169,7 +169,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Atlatl (MissileWeapons) Mutation #10 (885 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         ElementalDamageBonus = 16
@@ -191,7 +191,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Atlatl (MissileWeapons) Mutation #11 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 25%:
         ElementalDamageBonus = 19
@@ -217,9 +217,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 385
 
-Atlatl (MissileWeapons) Mutation #12 (1,355 samples):
+Atlatl (MissileWeapons) Mutation #12 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 12%:
         ElementalDamageBonus = 22
@@ -251,9 +251,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 402
 
-Atlatl (MissileWeapons) Mutation #13 (1,355 samples):
+Atlatl (MissileWeapons) Mutation #13 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         ElementalDamageBonus = 30
@@ -297,9 +297,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 412
 
-Atlatl (MissileWeapons) Mutation #14 (1,355 samples):
+Atlatl (MissileWeapons) Mutation #14 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 10%:
         ElementalDamageBonus = 42
@@ -343,54 +343,108 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
         WieldSkillType = WeaponSkill
         WieldDifficulty = 422
 
-Atlatl (MissileWeapons) Mutation #15 (1,355 samples):
+Atlatl (MissileWeapons) Mutation #15 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
-    - Chance: 10%:
+    - Chance: 15%:
+        ElementalDamageBonus = 55
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 442
+
+    - Chance: 52%:
         ElementalDamageBonus = 56
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
-    - Chance: 40%:
+    - Chance: 30%:
+        ElementalDamageBonus = 57
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 442
+
+    - Chance: 2%:
         ElementalDamageBonus = 58
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
-    - Chance: 30%:
-        ElementalDamageBonus = 60
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
-
-    - Chance: 10%:
-        ElementalDamageBonus = 62
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
-
-    - Chance: 5%:
-        ElementalDamageBonus = 64
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
-
-    - Chance: 2%:
-        ElementalDamageBonus = 66
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
-
-    - Chance: 2%:
-        ElementalDamageBonus = 68
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
-
     - Chance: 1%:
-        ElementalDamageBonus = 70
+        ElementalDamageBonus = 59
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
+
+Atlatl (MissileWeapons) Mutation #16 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+
+    - Chance: 100%:
+        ElementalDamageBonus = 59
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 442
+        WieldRequirements3 = IntStat
+        WieldSkillType3 = 390
+
+Atlatl (MissileWeapons) Mutation #17 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+    - Chance: 30%:
+        DamageMod += Random(0.01, 0.06)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 1
+    - Chance: 40%:
+        DamageMod += Random(0.07, 0.10)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 1
+    - Chance: 20%:
+        DamageMod += Random(0.11, 0.13)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 1
+    - Chance: 10%:
+        DamageMod += Random(0.14, 0.15)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 1
+
+Atlatl (MissileWeapons) Mutation #18 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+    - Chance: 30%:
+        DamageMod += Random(0.16, 0.21)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 3
+    - Chance: 40%:
+        DamageMod += Random(0.22, 0.25)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 3
+    - Chance: 20%:
+        DamageMod += Random(0.26, 0.28)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 3
+    - Chance: 10%:
+        DamageMod += Random(0.29, 0.30)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 3
+
+Atlatl (MissileWeapons) Mutation #19 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+    - Chance: 30%:
+        DamageMod += Random(0.31, 0.35)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 5
+    - Chance: 40%:
+        DamageMod += Random(0.36, 0.40)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 5
+    - Chance: 20%:
+        DamageMod += Random(0.41, 0.43)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 5
+    - Chance: 10%:
+        DamageMod += Random(0.44, 0.45)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 5

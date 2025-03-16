@@ -1,6 +1,6 @@
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #1:
 
-Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 50%:
         WeaponOffense = 1.04
@@ -10,7 +10,7 @@ Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #2:
 
-Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 50%:
         WeaponOffense = 1.09
@@ -20,7 +20,7 @@ Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #3:
 
-Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         WeaponOffense = 1.13
@@ -33,7 +33,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #4:
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         WeaponOffense = 1.15
@@ -46,7 +46,7 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #5:
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         WeaponOffense = 1.17
@@ -59,7 +59,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #6:
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 50%:
         WeaponOffense = 1.19
@@ -69,7 +69,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #7:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 12.5%:
         WeaponOffense = 1.21
@@ -88,7 +88,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #8:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 25%:
         WeaponOffense = 1.22
@@ -104,7 +104,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #9:
 
-Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 50%:
         WeaponDefense = 1.02
@@ -114,7 +114,7 @@ Tier chances: 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #10:
 
-Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 50%:
         WeaponDefense = 1.03
@@ -124,7 +124,7 @@ Tier chances: 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #11:
 
-Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         WeaponDefense = 1.03
@@ -137,7 +137,7 @@ Tier chances: 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #12:
 
-Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         WeaponDefense = 1.05
@@ -150,7 +150,7 @@ Tier chances: 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #13:
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         WeaponDefense = 1.07
@@ -163,7 +163,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #14:
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 50%:
         WeaponDefense = 1.09
@@ -173,7 +173,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #15:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 25%:
         WeaponDefense = 1.12
@@ -189,7 +189,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #16:
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1
 
     - Chance: 15%:
         WeaponDefense = 1.12
@@ -205,7 +205,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #17:
 		
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 85%:
         WeaponDefense += 0.02
@@ -234,7 +234,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #18:
 		
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 85%:
         WeaponDefense += 0.05
@@ -263,7 +263,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #19:
 		
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 85%:
         WeaponDefense += 0.08
@@ -292,7 +292,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
 Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #20:
 		
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
     - Chance: 85%:
         WeaponDefense += 0.13
@@ -317,4 +317,91 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
     - Chance: 2%:
         WeaponDefense += 0.17
         WeaponOffense += 0.17
+        CriticalFrequency = 0.45
+
+Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #21:
+		
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 85%:
+        WeaponDefense += 0.18
+        WeaponOffense += 0.18
+        CriticalFrequency = 0.36
+
+    - Chance: 6%:
+        WeaponDefense += 0.19
+        WeaponOffense += 0.19
+        CriticalFrequency = 0.38
+
+    - Chance: 4%:
+        WeaponDefense += 0.20
+        WeaponOffense += 0.20
+        CriticalFrequency = 0.42
+
+    - Chance: 3%:
+        WeaponDefense += 0.21
+        WeaponOffense += 0.21
+        CriticalFrequency = 0.44
+
+    - Chance: 2%:
+        WeaponDefense += 0.22
+        WeaponOffense += 0.22
+        CriticalFrequency = 0.45
+
+Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #22:
+		
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 85%:
+        WeaponDefense += 0.23
+        WeaponOffense += 0.23
+        CriticalFrequency = 0.36
+
+    - Chance: 6%:
+        WeaponDefense += 0.24
+        WeaponOffense += 0.24
+        CriticalFrequency = 0.38
+
+    - Chance: 4%:
+        WeaponDefense += 0.25
+        WeaponOffense += 0.25
+        CriticalFrequency = 0.42
+
+    - Chance: 3%:
+        WeaponDefense += 0.26
+        WeaponOffense += 0.26
+        CriticalFrequency = 0.44
+
+    - Chance: 2%:
+        WeaponDefense += 0.27
+        WeaponOffense += 0.27
+        CriticalFrequency = 0.45
+
+Spear (HeavyWeapons, LightWeapons, FinesseWeapons) Mutation #23:
+		
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 85%:
+        WeaponDefense += 0.28
+        WeaponOffense += 0.28
+        CriticalFrequency = 0.36
+
+    - Chance: 6%:
+        WeaponDefense += 0.29
+        WeaponOffense += 0.29
+        CriticalFrequency = 0.38
+
+    - Chance: 4%:
+        WeaponDefense += 0.30
+        WeaponOffense += 0.30
+        CriticalFrequency = 0.42
+
+    - Chance: 3%:
+        WeaponDefense += 0.31
+        WeaponOffense += 0.31
+        CriticalFrequency = 0.44
+
+    - Chance: 2%:
+        WeaponDefense += 0.32
+        WeaponOffense += 0.32
         CriticalFrequency = 0.45

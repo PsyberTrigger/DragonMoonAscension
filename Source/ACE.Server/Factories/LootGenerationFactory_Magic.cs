@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Reflection.Metadata.Ecma335;
 using ACE.Common;
 using ACE.Database.Models.World;
 using ACE.Entity.Enum;
@@ -133,9 +133,16 @@ namespace ACE.Server.Factories
                 {
                     var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
                     int col = ThreadSafeRandom.Next(lowSpellTier - 1, highSpellTier - 1);
-                    SpellId spellID = spells[indices[idx]][col];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
+                    try
+                    {
+                        SpellId spellID = spells[indices[idx]][col];
+                        indices.RemoveAt(idx);
+                        wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
+                    }
+                    catch
+                    {
+                        continue;
+                    }
                 }
             }
 
@@ -165,38 +172,44 @@ namespace ACE.Server.Factories
             if (numCantrips > 0)
             {
                 var indices = Enumerable.Range(0, cantrips.Length).ToList();
-
-                // minor cantrips
-                for (var i = 0; i < minorCantrips; i++)
+                try
                 {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    SpellId spellID = cantrips[indices[idx]][0];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
+                    // minor cantrips
+                    for (var i = 0; i < minorCantrips; i++)
+                    {
+                        var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
+                        SpellId spellID = cantrips[indices[idx]][0];
+                        indices.RemoveAt(idx);
+                        wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
+                    }
+                    // major cantrips
+                    for (var i = 0; i < majorCantrips; i++)
+                    {
+                        var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
+                        SpellId spellID = cantrips[indices[idx]][1];
+                        indices.RemoveAt(idx);
+                        wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
+                    }
+                    // epic cantrips
+                    for (var i = 0; i < epicCantrips; i++)
+                    {
+                        var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
+                        SpellId spellID = cantrips[indices[idx]][2];
+                        indices.RemoveAt(idx);
+                        wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
+                    }
+                    // legendary cantrips
+                    for (var i = 0; i < legendaryCantrips; i++)
+                    {
+                        var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
+                        SpellId spellID = cantrips[indices[idx]][3];
+                        indices.RemoveAt(idx);
+                        wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
+                    }
                 }
-                // major cantrips
-                for (var i = 0; i < majorCantrips; i++)
+                catch
                 {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    SpellId spellID = cantrips[indices[idx]][1];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
-                }
-                // epic cantrips
-                for (var i = 0; i < epicCantrips; i++)
-                {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    SpellId spellID = cantrips[indices[idx]][2];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
-                }
-                // legendary cantrips
-                for (var i = 0; i < legendaryCantrips; i++)
-                {
-                    var idx = ThreadSafeRandom.Next(0, indices.Count - 1);
-                    SpellId spellID = cantrips[indices[idx]][3];
-                    indices.RemoveAt(idx);
-                    wo.Biota.GetOrAddKnownSpell((int)spellID, wo.BiotaDatabaseLock, out _);
+                    return false;
                 }
             }
             return true;
@@ -516,6 +529,9 @@ namespace ACE.Server.Factories
             (2000, 2200),   // T10
             (2200, 2400),   // T11
             (2400, 2600),   // T12
+            (2600, 2800),   // T13
+            (2800, 3000),   // T14
+            (3200, 3400),   // T15
         };
 
         private static int RollItemMaxMana(int tier, int numSpells)

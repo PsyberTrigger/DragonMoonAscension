@@ -1,15 +1,15 @@
-Caster (NonElemental) Mutation #7 (116 samples):
+Caster (NonElemental) Mutation #11 (116 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 100%:
         WieldRequirements = Level
         WieldDifficulty = 150
         WieldSkillType = 1
 
-Caster (NonElemental) Mutation #8 (208 samples):
+Caster (NonElemental) Mutation #12 (208 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         WieldRequirements = Level
@@ -21,9 +21,9 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
         WieldDifficulty = 180
         WieldSkillType = 1
 
-Caster (NonElemental) Mutation #9 (0 samples):
+Caster (NonElemental) Mutation #13 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0
 
     - Chance: 10%:
         WieldRequirements = Level
@@ -34,3 +34,35 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
         WieldRequirements = Level
         WieldDifficulty = 200
         WieldSkillType = 1
+
+Caster (NonElemental) Mutation #14 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+
+    - Chance: 100%:
+        WieldRequirements = Level
+        WieldDifficulty = 200
+        WieldSkillType = 1
+        WieldRequirements2 = 9
+        WieldSkillType2 = 390
+
+Caster (NonElemental) Mutation #15 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+
+    - Chance: 100%:
+        WieldDifficulty2 = 1
+
+Caster (NonElemental) Mutation #16 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+
+    - Chance: 100%:
+        WieldDifficulty2 = 3
+
+Caster (NonElemental) Mutation #17 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+
+    - Chance: 100%:
+        WieldDifficulty2 = 5

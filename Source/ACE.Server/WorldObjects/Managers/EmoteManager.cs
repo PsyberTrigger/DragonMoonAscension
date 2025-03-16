@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
@@ -226,10 +227,18 @@ namespace ACE.Server.WorldObjects.Managers
 
                         if (!spell.NotFound)
                         {
-                            var spellTarget = GetSpellTarget(spell, targetObject);
+                            try
+                            {
+                                var spellTarget = GetSpellTarget(spell, targetObject);
+                                WorldObject.TryCastSpell_WithRedirects(spell, spellTarget, WorldObject);
+                            }
+                            catch
+                            {
+                                log.Error($"{WorldObject.Name} ({WorldObject.Guid}) EmoteManager.CastSpellInstant - failed to cast spell {emote.SpellId}");
+                                break;
+                            }
 
-                            WorldObject.TryCastSpell_WithRedirects(spell, spellTarget, WorldObject);
-                        }
+                            }
                     }
                     break;
 
@@ -1645,13 +1654,13 @@ namespace ACE.Server.WorldObjects.Managers
                         switch (dragonType2)
                         {
                             case "blackdragon":
-                                PropertyManager.ModifyDouble("xp_modifier", 1);
-                                PropertyManager.ModifyDouble("quest_xp_modifier", 5);
-                                PropertyManager.ModifyDouble("kill_xp_modifier", 1);
+                                PropertyManager.ModifyDouble("xp_modifier", 1, true);
+                                PropertyManager.ModifyDouble("quest_xp_modifier", 5, true);
+                                PropertyManager.ModifyDouble("kill_xp_modifier", 1, true);
                                 break;
                             case "bluedragon":
-                                PropertyManager.ModifyDouble("quest_lum_modifier", 1);
-                                PropertyManager.ModifyDouble("luminance_modifier", 5);
+                                PropertyManager.ModifyDouble("quest_lum_modifier", 1, true);
+                                PropertyManager.ModifyDouble("luminance_modifier", 5, true);
                                 break;
                             case "greendragon":
                             case "bronzedragon":

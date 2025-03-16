@@ -72,7 +72,7 @@ namespace ACE.Server.Factories.Tables
             ( 200, 1.0f )
         };
 
-        private static ChanceTable<int> T13_PetLevelChances = new ChanceTable<int>()
+        private static ChanceTable<int> T13_T15_PetLevelChances = new ChanceTable<int>()
         {
             ( 200, 1.0f )
         };
@@ -91,7 +91,9 @@ namespace ACE.Server.Factories.Tables
             T10_PetLevelChances,
             T11_PetLevelChances,
             T12_PetLevelChances,
-            T13_PetLevelChances
+            T13_T15_PetLevelChances,
+            T13_T15_PetLevelChances,
+            T13_T15_PetLevelChances,
        };
 
         /// <summary>

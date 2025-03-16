@@ -1,6 +1,6 @@
 Crossbow (MissileWeapons) Mutation #1 (7,015 samples):
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 35%:
         DamageMod = 2.6
@@ -13,7 +13,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
 
 Crossbow (MissileWeapons) Mutation #4 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.65
@@ -35,7 +35,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
 Crossbow (MissileWeapons) Mutation #5 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.70
@@ -57,7 +57,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
 Crossbow (MissileWeapons) Mutation #6 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.75
@@ -79,7 +79,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
 Crossbow (MissileWeapons) Mutation #7 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
 
     - Chance: 30%:
         DamageMod = 2.75
@@ -101,7 +101,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
 
 Crossbow (MissileWeapons) Mutation #8 (1,540 samples):
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 20%:
         ElementalDamageBonus = 3
@@ -123,7 +123,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Crossbow (MissileWeapons) Mutation #9 (3,988 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 4%:
         ElementalDamageBonus = 6
@@ -175,7 +175,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Crossbow (MissileWeapons) Mutation #10 (1,082 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 50%:
         ElementalDamageBonus = 17
@@ -191,7 +191,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Crossbow (MissileWeapons) Mutation #11 (1,508 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 25%:
         ElementalDamageBonus = 19
@@ -219,7 +219,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
 Crossbow (MissileWeapons) Mutation #12 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         ElementalDamageBonus = 22
@@ -259,7 +259,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
 Crossbow (MissileWeapons) Mutation #13 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         ElementalDamageBonus = 32
@@ -305,7 +305,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
 Crossbow (MissileWeapons) Mutation #14 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 10%:
         ElementalDamageBonus = 40
@@ -345,52 +345,106 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
 Crossbow (MissileWeapons) Mutation #15 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
-    - Chance: 10%:
-        ElementalDamageBonus = 58
+    - Chance: 15%:
+        ElementalDamageBonus = 46
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
-    - Chance: 40%:
-        ElementalDamageBonus = 60
+    - Chance: 52%:
+        ElementalDamageBonus = 47
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
     - Chance: 30%:
-        ElementalDamageBonus = 62
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
-
-    - Chance: 10%:
-        ElementalDamageBonus = 64
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
-
-    - Chance: 5%:
-        ElementalDamageBonus = 66
+        ElementalDamageBonus = 48
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
     - Chance: 2%:
-        ElementalDamageBonus = 68
-        WieldRequirements = RawSkill
-        WieldSkillType = WeaponSkill
-        WieldDifficulty = 442
-
-    - Chance: 2%:
-        ElementalDamageBonus = 70
+        ElementalDamageBonus = 49
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
 
     - Chance: 1%:
-        ElementalDamageBonus = 72
+        ElementalDamageBonus = 50
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
+
+Crossbow (MissileWeapons) Mutation #16 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+
+    - Chance: 100%:
+        ElementalDamageBonus = 50
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 442
+        WieldRequirements3 = IntStat
+        WieldSkillType3 = 390
+
+Crossbow (MissileWeapons) Mutation #17 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+    - Chance: 30%:
+        DamageMod += Random(0.01, 0.06)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 1
+    - Chance: 40%:
+        DamageMod += Random(0.07, 0.10)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 1
+    - Chance: 20%:
+        DamageMod += Random(0.11, 0.13)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 1
+    - Chance: 10%:
+        DamageMod += Random(0.14, 0.15)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 1
+
+Crossbow (MissileWeapons) Mutation #18 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+    - Chance: 30%:
+        DamageMod += Random(0.16, 0.21)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 3
+    - Chance: 40%:
+        DamageMod += Random(0.22, 0.25)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 3
+    - Chance: 20%:
+        DamageMod += Random(0.26, 0.28)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 3
+    - Chance: 10%:
+        DamageMod += Random(0.29, 0.30)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 3
+
+Crossbow (MissileWeapons) Mutation #19 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+    - Chance: 30%:
+        DamageMod += Random(0.31, 0.35)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 5
+    - Chance: 40%:
+        DamageMod += Random(0.36, 0.40)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 5
+    - Chance: 20%:
+        DamageMod += Random(0.41, 0.43)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 5
+    - Chance: 10%:
+        DamageMod += Random(0.44, 0.45)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 5

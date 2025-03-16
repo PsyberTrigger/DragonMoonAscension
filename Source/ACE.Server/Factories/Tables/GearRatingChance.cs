@@ -5,6 +5,7 @@ using ACE.Server.Factories.Entity;
 using ACE.Server.WorldObjects;
 using ACE.Common;
 using ACE.Entity.Enum.Properties;
+using Microsoft.Extensions.Options;
 
 namespace ACE.Server.Factories.Tables
 {
@@ -75,12 +76,32 @@ namespace ACE.Server.Factories.Tables
 
         private static ChanceTable<int> TierRatingMod13 = new ChanceTable<int>()
         {
-            ( 32, 0.80f ),
-            ( 34, 0.075f ),
-            ( 36, 0.045f ),
-            ( 38, 0.040f ),
+            ( 32, 0.60f ),
+            ( 34, 0.15f ),
+            ( 36, 0.125f ),
+            ( 38, 0.075f ),
             ( 40, 0.0375f ),
-            ( 45, 0.0025f )
+            ( 45, 0.0125f )
+        };
+
+        private static ChanceTable<int> TierRatingMod14 = new ChanceTable<int>()
+        {
+            ( 50, 0.60f ),
+            ( 55, 0.15f ),
+            ( 60, 0.125f ),
+            ( 65, 0.075f ),
+            ( 70, 0.0375f ),
+            ( 75, 0.0125f )
+        };
+
+        private static ChanceTable<int> TierRatingMod15 = new ChanceTable<int>()
+        {
+            ( 80, 0.60f ),
+            ( 85, 0.15f ),
+            ( 90, 0.125f ),
+            ( 95, 0.075f ),
+            ( 100, 0.0375f ),
+            ( 105, 0.0125f )
         };
 
         public static int Roll(WorldObject wo, TreasureDeath profile, TreasureRoll roll)
@@ -116,6 +137,12 @@ namespace ACE.Server.Factories.Tables
                     case 13:
                         ratingTierMod = TierRatingMod13;
                         break;
+                    case 14:
+                        ratingTierMod = TierRatingMod14;
+                        break;
+                    case 15:
+                        ratingTierMod = TierRatingMod15;
+                        break;
                     default:
                         break;
                 }
@@ -129,7 +156,8 @@ namespace ACE.Server.Factories.Tables
 
             if (ratingTierMod != null)
             {
-                return (rating.Roll(profile.LootQualityMod) + ratingTierMod.Roll(profile.LootQualityMod));
+                var tratings = (rating.Roll(profile.LootQualityMod) + ratingTierMod.Roll(profile.LootQualityMod));
+                return tratings;
             }
             else
             {

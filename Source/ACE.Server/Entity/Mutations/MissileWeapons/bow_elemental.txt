@@ -1,6 +1,6 @@
 Bow (MissileWeapons) Mutation #1 (6,996 samples):
 
-Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
+Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 35%:
         DamageMod = 2.35
@@ -13,7 +13,7 @@ Tier chances: 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #4 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 30%:
         DamageMod = 2.40
@@ -35,7 +35,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #5 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 15%:
         DamageMod = 2.45
@@ -57,7 +57,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
 Bow (MissileWeapons) Mutation #6 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 15%:
         DamageMod = 2.50
@@ -79,29 +79,29 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
 Bow (MissileWeapons) Mutation #7 (0 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1
 
     - Chance: 80%:
-        DamageMod = 2.50
+        DamageMod = 2.55
 
     - Chance: 6%:
-        DamageMod = 2.51
+        DamageMod = 2.56
 
     - Chance: 5%:
-        DamageMod = 2.52
+        DamageMod = 2.57
 
     - Chance: 4%:
-        DamageMod = 2.53
+        DamageMod = 2.58
 
     - Chance: 3%:
-        DamageMod = 2.54
+        DamageMod = 2.59
 
     - Chance: 2%:
-        DamageMod = 2.55
+        DamageMod = 2.60
 
 Bow (MissileWeapons) Mutation #8 (1,480 samples):
 
-Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 20%:
         ElementalDamageBonus = 3
@@ -123,7 +123,7 @@ Tier chances: 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #9 (3,931 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 4%:
         ElementalDamageBonus = 6
@@ -175,7 +175,7 @@ Tier chances: 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #10 (1,035 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 50%:
         ElementalDamageBonus = 17
@@ -191,7 +191,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #11 (1,607 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
 
     - Chance: 25%:
         ElementalDamageBonus = 19
@@ -219,7 +219,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #12 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         ElementalDamageBonus = 22
@@ -259,7 +259,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
 Bow (MissileWeapons) Mutation #13 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0
 
     - Chance: 10%:
         ElementalDamageBonus = 32
@@ -305,7 +305,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
 
 Bow (MissileWeapons) Mutation #14 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0
 
     - Chance: 10%:
         ElementalDamageBonus = 40
@@ -345,7 +345,7 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
 
 Bow (MissileWeapons) Mutation #15 (1,355 samples):
 
-Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0
 
     - Chance: 15%:
         ElementalDamageBonus = 46
@@ -376,3 +376,75 @@ Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
         WieldRequirements = RawSkill
         WieldSkillType = WeaponSkill
         WieldDifficulty = 442
+
+Bow (MissileWeapons) Mutation #16 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1
+
+    - Chance: 100%:
+        ElementalDamageBonus = 50
+        WieldRequirements = RawSkill
+        WieldSkillType = WeaponSkill
+        WieldDifficulty = 442
+        WieldRequirements3 = IntStat
+        WieldSkillType3 = 390
+
+Bow (MissileWeapons) Mutation #17 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0
+    - Chance: 30%:
+        DamageMod += Random(0.01, 0.06)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 1
+    - Chance: 40%:
+        DamageMod += Random(0.07, 0.10)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 1
+    - Chance: 20%:
+        DamageMod += Random(0.11, 0.13)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 1
+    - Chance: 10%:
+        DamageMod += Random(0.14, 0.15)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 1
+
+Bow (MissileWeapons) Mutation #18 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0
+    - Chance: 30%:
+        DamageMod += Random(0.16, 0.21)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 3
+    - Chance: 40%:
+        DamageMod += Random(0.22, 0.25)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 3
+    - Chance: 20%:
+        DamageMod += Random(0.26, 0.28)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 3
+    - Chance: 10%:
+        DamageMod += Random(0.29, 0.30)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 3
+
+Bow (MissileWeapons) Mutation #19 (0 samples):
+
+Tier chances: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+    - Chance: 30%:
+        DamageMod += Random(0.31, 0.35)
+        ElementalDamageBonus += Random(1, 6)
+        WieldDifficulty3 = 5
+    - Chance: 40%:
+        DamageMod += Random(0.36, 0.40)
+        ElementalDamageBonus += Random(7, 11)
+        WieldDifficulty3 = 5
+    - Chance: 20%:
+        DamageMod += Random(0.41, 0.43)
+        ElementalDamageBonus += Random(12, 14)
+        WieldDifficulty3 = 5
+    - Chance: 10%:
+        DamageMod += Random(0.44, 0.45)
+        ElementalDamageBonus += Random(15, 16)
+        WieldDifficulty3 = 5
